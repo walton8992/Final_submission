@@ -20,7 +20,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor
 from datetime import timedelta
 from concurrent.futures import process
-
+import utilities
 # SCALING_AGGREGATION=SCALING_AGGREGATION.iloc[0]
 SINGLE_COSTS = (
     {'name': 'ar_1', 'cost':'ar', 'params':{'order':1}},
@@ -166,6 +166,8 @@ def load_data_pbz(filename):
     dictionary = bz2.BZ2File(f'{filename}.pbz2', 'rb')
     dict_sites_melt = pickle.load(dictionary)
     return dict_sites_melt
+
+
 start_time=time.time()
   
 if __name__=='__main__':
@@ -177,5 +179,6 @@ if __name__=='__main__':
 
 execution_time=(time.time() - start_time)
 time_mins=round(execution_time,0)/60  
-
+#%%
+utilities.plot_change_points_pyplot(binseg_flat, dict_sites_melt)
 
