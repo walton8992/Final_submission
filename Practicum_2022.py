@@ -180,5 +180,5 @@ if __name__=='__main__':
 execution_time=(time.time() - start_time)
 time_mins=round(execution_time,0)/60  
 #%%
-utilities.plot_change_points_pyplot(binseg_flat, dict_sites_melt)
+utilities.plot_change_points_pyplot(binseg_flat, dict_sites_melt,file_location_save='plots',save_fig=True)
 
