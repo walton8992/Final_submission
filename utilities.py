@@ -50,7 +50,7 @@ def plot_changepoints(flattened_dict,dict_sites_melt,save_loc):
                 for x in location:
                     x_plot=y_sns['datetime'][x-1]
                     plt.axvline(x_plot,lw=2, color='black',linestyle='--')
-            plt.savefig(save_loc+'/{}'.format(key))
+            plt.savefig(save_loc+'/{}.jpeg'.format(key))
             plt.close()
 
 def plot_change(flattened_dict,dict_sites_melt):

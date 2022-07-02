@@ -140,16 +140,16 @@ class CPDE(object):
         else:
             return test
         
-    def run(self):
+    def run(self,model):
        
        variables = ['BElarge','BEsmall','EFlarge','EFsmall']
 
-       tuple_arguments=[(x,y,'window',list(SCALING_AGGREGATION.keys())[:5]) for x in self.dict_sites_melt.keys() for y in variables]
+       tuple_arguments=[(x,y,'window',list(SCALING_AGGREGATION.keys())) for x in self.dict_sites_melt.keys() for y in variables]
        
        with process.ProcessPoolExecutor(max_workers=6) as multiprocessing_executor:
                    chunk= [tuple_arguments[x:x+10] for x in range(0, len(tuple_arguments), 10)]
                    print("mapping ...")
-                   r=multiprocessing_executor.map(test.multiprocess,chunk)
+                   r=multiprocessing_executor.map(model.multiprocess,chunk)
        final= [r for r in r]
        f2= [x for xs in final for x in xs if x is not None]
        cpde=self.dict_combine_cpde(f2)
@@ -167,10 +167,17 @@ start_time=time.time()
 #%%
 if __name__=='__main__':
     dict_sites_melt=data_load.load_data('site_data_melted')
-    test=CPDE('binseg',100,dict_sites_melt,True)
-    binseg,binseg_flat=test.run()
-    save_data(binseg, 'practicum_2022/Results/binseg_full')
-    save_data(binseg_flat, 'practicum_2022/Results/binseg_full_flat')
+    binseg=CPDE('binseg',100,dict_sites_melt,True)
+    window=CPDE('window,100',dict_sites_melt,True)
+    
+    binseg,binseg_flat=binseg.run(binseg)
+    window,window_flat=window.run(window)
+    save_data(binseg, 'practicum_2022/Results/binseg_full_24')
+    save_data(binseg_flat, 'practicum_2022/Results/binseg_flat_24')
+    
+    save_data(window, 'practicum_2022/Results/window_full_24')
+    save_data(window_flat, 'practicum_2022/Results/widow_flat_24')
+
 
 execution_time=(time.time() - start_time)
 time_mins=round(execution_time,0)/60  
