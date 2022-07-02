@@ -11,7 +11,7 @@ import numpy as np
 from itertools import cycle
 # from ruptures.utils import pairwise
 from itertools import tee
-
+import itertools
 import pandas as pd
 
 def plot_change_points_pyplot(data_test,dict_sites_melt,file_location_save =None,save_fig=False,show_fig=False):
@@ -38,17 +38,20 @@ def plot_change_points_pyplot(data_test,dict_sites_melt,file_location_save =None
 def plot_changepoints(flattened_dict,dict_sites_melt,save_loc):
     for key,data in flattened_dict.items():
         y_sns=dict_sites_melt[key][['datetime','value','variable']]
-        fig,ax=plt.subplots()
         
-        sns.lineplot(x='datetime',y='value',hue='variable',data=y_sns,ax=ax).set(title=key)
-        if len(data.values()) <=1:
+        # fig=sns.lineplot(x='datetime',y='value',hue='variable',data=y_sns,ax=ax).set(title=key)
+        values=list(itertools.chain(*data.values()))
+        if len(values) <=1:
             pass
         else:
+            fig,ax=plt.subplots(figsize=(20,20))
+            sns.lineplot(x='datetime',y='value',hue='variable',data=y_sns,ax=ax).set(title=key)
             for location in data.values():
                 for x in location:
                     x_plot=y_sns['datetime'][x-1]
                     plt.axvline(x_plot,lw=2, color='black',linestyle='--')
-            fig.save(save_loc)
+            plt.savefig(save_loc+'/{}'.format(key))
+            plt.close()
 
 def plot_change(flattened_dict,dict_sites_melt):
         '''
