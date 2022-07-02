@@ -181,7 +181,7 @@ start_time=time.time()
 if __name__=='__main__':
     dict_sites_melt=data_load.load_data('site_data_melted')
     binseg=CPDE('binseg',100,dict_sites_melt,True)
-    window=CPDE('window,100',dict_sites_melt,True)
+    window=CPDE('window',100,dict_sites_melt,True)
     
     binseg,binseg_flat=binseg.run(binseg)
     window,window_flat=window.run(window)
