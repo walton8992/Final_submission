@@ -122,7 +122,6 @@ class CPDE(object):
                 l=list(dic.items())
                 for item in l:
                     test[name][item[0]]+=item[1]
-                # test[name][item[0]]=list(set([name][item[0]]))
         #this is only if we want to combine all changepoints toether
         if combine:
             new_combined_dict={}
@@ -149,16 +148,6 @@ class CPDE(object):
        variables = ['BElarge','BEsmall','EFlarge','EFsmall']
 
        tuple_arguments=[(x,y,'window',list(SCALING_AGGREGATION.keys())[:5]) for x in self.dict_sites_melt.keys() for y in variables]
-       # processes = []
-
-       # chunk= [tuple_arguments[x:x+10] for x in range(0, len(tuple_arguments), 10)][:5]
-
-       # for i in chunk:
-       #     p = multiprocessing.Process(target=self.multiprocess, args=(i))
-       #     processes.append(p)
-       
-         
-       # [x.start() for x in processes]
        
        with process.ProcessPoolExecutor(max_workers=6) as multiprocessing_executor:
                    chunk= [tuple_arguments[x:x+10] for x in range(0, len(tuple_arguments), 10)]
