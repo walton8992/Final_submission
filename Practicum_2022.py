@@ -141,7 +141,22 @@ class CPDE(object):
             return test
         
     def run(self,model):
-       
+       '''
+        
+
+        Parameters
+        ----------
+        model : TYPE
+            DESCRIPTION.
+
+        Returns
+        -------
+        cpde : TYPE
+            DESCRIPTION.
+        cpde_combined : TYPE
+            DESCRIPTION.
+
+        '''
        variables = ['BElarge','BEsmall','EFlarge','EFsmall']
 
        tuple_arguments=[(x,y,'window',list(SCALING_AGGREGATION.keys())) for x in self.dict_sites_melt.keys() for y in variables]
