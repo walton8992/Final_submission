@@ -142,11 +142,11 @@ class CPDE(object):
         
     def run(self,model):
        '''
-        
 
         Parameters
         ----------
-        model : TYPE
+        model : algo from ensemble
+        
             DESCRIPTION.
 
         Returns
@@ -155,7 +155,6 @@ class CPDE(object):
             DESCRIPTION.
         cpde_combined : TYPE
             DESCRIPTION.
-
         '''
        variables = ['BElarge','BEsmall','EFlarge','EFsmall']
 
