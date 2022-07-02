@@ -188,8 +188,5 @@ if __name__=='__main__':
 
 execution_time=(time.time() - start_time)
 time_mins=round(execution_time,0)/60  
-# save_data(window, 'Results/CPDE_CLASS')
-# save_data(window_flat, 'Results/CPDE_CLASS_FLAT')
-# window_old=load_data_pbz('Results/CPDE_results_Multicost')
-# -*- coding: utf-8 -*-
+
 
