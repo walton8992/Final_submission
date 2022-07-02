@@ -178,12 +178,10 @@ def load_data_pbz(filename):
     dict_sites_melt = pickle.load(dictionary)
     return dict_sites_melt
 start_time=time.time()
-
-
   
 if __name__=='__main__':
     
-    test=CPDE('binseg',100,dict_sites_melt)
+    test=CPDE('binseg',100,dict_sites_melt,True)
     binseg,binseg_flat=test.run()
     save_data(binseg, 'Results/binseg_full')
     save_data(binseg_flat, 'Results/binseg_full_flat')
