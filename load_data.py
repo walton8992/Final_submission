@@ -13,6 +13,7 @@ import pickle
 import data_loading as data_load
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 def load_data_pbz(filename):
     dictionary = bz2.BZ2File(f'{filename}.pbz2', 'rb')
     dict_sites_melt = pickle.load(dictionary)
