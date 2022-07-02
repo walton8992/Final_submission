@@ -8,6 +8,11 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+from itertools import cycle
+# from ruptures.utils import pairwise
+from itertools import tee
+
+import pandas as pd
 
 def plot_change_points_pyplot(data_test,dict_sites_melt,file_location_save =None,save_fig=False,show_fig=False):
     for key,data in data_test.items():
@@ -42,7 +47,7 @@ def plot_changepoints(flattened_dict,dict_sites_melt):
                 x_plot=y_sns['datetime'][x-1]
                 plt.axvline(x_plot,lw=2, color='black',linestyle='--')
 
-def plot_change(x,y,cpd,ax):
+def plot_change(flattened_dict,dict_sites_melt):
         '''
     
     
@@ -62,23 +67,33 @@ def plot_change(x,y,cpd,ax):
         None.
     
         '''
-        from itertools import cycle
-        # from ruptures.utils import pairwise
-        from itertools import tee
-
-        n_samples, n_features = np.array(y).reshape(-1,1).shape
-        COLOR_CYCLE = ["#4286f4", "#f44174"]
-
-        color_cycle = cycle(COLOR_CYCLE)
-        # plot s
-        ax.plot(range(n_samples), y)
-
-        # color each (true) regime
-        bkps = [0] + sorted(cpd)
-        alpha = 0.2  # transparency of the colored background
-        #store list as iterators
-        l1,l2=tee(bkps)
-        next(l2,None)
-        zipped_lists=zip(l1,l2)
-        for (start,end ),col in zip(zipped_lists,color_cycle):
-            ax.axvspan(max(0, start - 0.5), end - 0.5, facecolor=col, alpha=alpha)
+        for key, data in flattened_dict.items():
+            x=np.array(dict_sites_melt[key]['datetime']).reshape(-1,1)
+            y=dict_sites_melt[key][['value','variable']]
+            cpd = list(data['all'])
+            if len(cpd)==0:
+                pass
+            else:
+                #unflatten variables
+                #change y to each parameter
+                #%%
+                df_unmelt=pd.DataFrame()
+                for variable in y.variable.unique():
+                    temp_df=y[y.variable ==variable]
+                    df_unmelt=pd.concat([df_unmelt,temp_df],axis=1)
+                n_samples, n_features = np.array(y).reshape(-1,1).shape
+                COLOR_CYCLE = ["#4286f4", "#f44174"]
+        
+                color_cycle = cycle(COLOR_CYCLE)
+                # plot s
+                ax.plot(range(n_samples), y)
+        
+                # color each (true) regime
+                bkps = [0] + sorted(cpd)
+                alpha = 0.2  # transparency of the colored background
+                #store list as iterators
+                l1,l2=tee(bkps)
+                next(l2,None)
+                zipped_lists=zip(l1,l2)
+                for (start,end ),col in zip(zipped_lists,color_cycle):
+                    ax.axvspan(max(0, start - 0.5), end - 0.5, facecolor=col, alpha=alpha)
