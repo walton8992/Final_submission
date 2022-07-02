@@ -8,7 +8,7 @@ import os
 
 current_do=os.getcwd()
 os.chdir(r'C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final')
-DATA=r'C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final\Data'
+DATA=r'Data\\'
 import ruptures as rpt
 import numpy as np
 import data_loading as data_load
@@ -38,12 +38,12 @@ def load_data_pbz(filename):
     dictionary = bz2.BZ2File(f'{filename}.pbz2', 'rb')
     dict_sites_melt = pickle.load(dictionary)
     return dict_sites_melt
-dict_sites_melt=data_load.load_data(DATA+'\site_data_melted')
+dict_sites_melt=data_load.load_data('site_data_melted')
 
 
 class CPDE(object):
     
-    def __init__(self,model,pen,dict_sites_melt,lookback_duration):
+    def __init__(self,model,pen,dict_sites_melt,lookback_duration=False):
         self.model=model
         self.pen=pen
         if lookback_duration:
