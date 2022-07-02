@@ -142,7 +142,6 @@ class CPDE(object):
         
     def run(self,model):
        '''
-
         Parameters
         ----------
         model : algo from ensemble
