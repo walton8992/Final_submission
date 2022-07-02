@@ -46,9 +46,9 @@ class CPDE(object):
     def __init__(self,model,pen,dict_sites_melt):
         self.model=model
         self.pen=pen
-        self.dict_sites_melt=dict_sites_melt
+        # self.dict_sites_melt=dict_sites_melt
 
-        # self.dict_sites_melt=self._twentyfour_hours(dict_sites_melt)
+        self.dict_sites_melt=self._twentyfour_hours(dict_sites_melt)
     def multiprocess(self,data):
         with ThreadPoolExecutor(max_workers = 6) as executor:
             results = list(tqdm(executor.map(self.generate_cpde,data), total=len(data)))
