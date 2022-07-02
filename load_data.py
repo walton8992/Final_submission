@@ -25,9 +25,9 @@ window_flat=load_data_pbz('practicum_2022/Results/window_full_flat')
 
 #%% plotting
 
-utilities.plot_change_points_pyplot(binseg_flat, dict_sites_melt,file_location_save='plots/binseg',save_fig=True)
-utilities.plot_change_points_pyplot(window_flat, dict_sites_melt,file_location_save='plots/window',save_fig=True)
+utilities.plot_change_points_pyplot(binseg_flat, dict_sites_melt,file_location_save='plots/binseg/pyplot',save_fig=True)
+utilities.plot_change_points_pyplot(window_flat, dict_sites_melt,file_location_save='plots/window/pyplot',save_fig=True)
 
 #%%
 
-utilities.plot_changepoints(window_flat,dict_sites_melt)
+utilities.plot_changepoints(window_flat,dict_sites_melt,save_loc='plots/window/pylot')

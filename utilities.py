@@ -35,17 +35,20 @@ def plot_change_points_pyplot(data_test,dict_sites_melt,file_location_save =None
                         fig.write_html(file_location_save+"/{}_plot.html".format(key+'_'+cost))
 
 
-def plot_changepoints(flattened_dict,dict_sites_melt):
+def plot_changepoints(flattened_dict,dict_sites_melt,save_loc):
     for key,data in flattened_dict.items():
         y_sns=dict_sites_melt[key][['datetime','value','variable']]
         fig,ax=plt.subplots()
         
         sns.lineplot(x='datetime',y='value',hue='variable',data=y_sns,ax=ax).set(title=key)
-        
-        for location in data.values():
-            for x in location:
-                x_plot=y_sns['datetime'][x-1]
-                plt.axvline(x_plot,lw=2, color='black',linestyle='--')
+        if len(data.values()) <=1:
+            pass
+        else:
+            for location in data.values():
+                for x in location:
+                    x_plot=y_sns['datetime'][x-1]
+                    plt.axvline(x_plot,lw=2, color='black',linestyle='--')
+            fig.save(save_loc)
 
 def plot_change(flattened_dict,dict_sites_melt):
         '''
