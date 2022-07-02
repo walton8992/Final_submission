@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 """
 Class
@@ -6,7 +7,7 @@ Class
 import os
 
 current_do=os.getcwd()
-os.chdir(r'C:\Users\Alex\Documents\Georgia Tech Official MSC\Practicum_repo')
+os.chdir(r'C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final')
 
 import ruptures as rpt
 import numpy as np
@@ -190,3 +191,5 @@ time_mins=round(execution_time,0)/60
 # save_data(window, 'Results/CPDE_CLASS')
 # save_data(window_flat, 'Results/CPDE_CLASS_FLAT')
 # window_old=load_data_pbz('Results/CPDE_results_Multicost')
+# -*- coding: utf-8 -*-
+
