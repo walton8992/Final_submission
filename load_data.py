@@ -29,5 +29,5 @@ utilities.plot_change_points_pyplot(binseg_flat, dict_sites_melt,file_location_s
 utilities.plot_change_points_pyplot(window_flat, dict_sites_melt,file_location_save='plots/window/pyplot',save_fig=True)
 
 #%%
-
-utilities.plot_changepoints(window_flat,dict_sites_melt,save_loc='plots/window/pylot')
+utilities.plot_changepoints(binseg_flat,dict_sites_melt,save_loc='plots/binseg/matplotlib')
+utilities.plot_changepoints(window_flat,dict_sites_melt,save_loc='plots/window/matplotlib')
