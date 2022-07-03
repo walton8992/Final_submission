@@ -20,7 +20,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor
 from datetime import timedelta
 from concurrent.futures import process
-import utilities
+from  utilities import save_data
 # SCALING_AGGREGATION=SCALING_AGGREGATION.iloc[0]
 SINGLE_COSTS = (
     {'name': 'ar_1', 'cost':'ar', 'params':{'order':1}},
@@ -66,12 +66,19 @@ class CPDE(object):
 
                     data=SCALING_AGGREGATION[scaling_agg] 
                     algo=self.get_algo(data)
-                    table_ensemble_window[data] = self.fit_model(algo,y)
+                    try:
+                        table_ensemble_window[data] = self.fit_model(algo,y)
+                    except:
+                        table_ensemble_window[data]=None
                 elif isinstance(scaling_agg,list):
                     for scale in scaling_agg:
                         data=SCALING_AGGREGATION[scale] 
                         algo=self.get_algo(data)
-                        table_ensemble_window[scale] = self.fit_model(algo, y)
+                        try:
+
+                            table_ensemble_window[scale] = self.fit_model(algo, y)
+                        except:
+                            table_ensemble_window[scale]=None
               
                 return site,table_ensemble_window
 
@@ -79,18 +86,17 @@ class CPDE(object):
     def get_algo(self,scale_aggregation):
         if self.model == 'window':
              algo = rpt.WindowEnsemble(
-             width=3,
+             width=10,
              models=LIST_COSTS,
              params=PARAMS, 
-             scale_aggregation=scale_aggregation,
-             jump=3)
+             scale_aggregation=scale_aggregation
+            )
         elif self.model=='binseg':
              algo = rpt.BinsegEnsemble(
              min_size=5,
              models=LIST_COSTS,
              params=PARAMS, 
              scale_aggregation=scale_aggregation,
-             jump=3
          )
         return algo
     
@@ -157,7 +163,7 @@ class CPDE(object):
         '''
        variables = ['BElarge','BEsmall','EFlarge','EFsmall']
 
-       tuple_arguments=[(x,y,'window',SCALING_AGGREGATION['Min_MinAbs']) for x in self.dict_sites_melt.keys() for y in variables]
+       tuple_arguments=[(x,y,'window','Min_Raw') for x in self.dict_sites_melt.keys() for y in variables]
        
        with process.ProcessPoolExecutor(max_workers=6) as multiprocessing_executor:
                    chunk= [tuple_arguments[x:x+10] for x in range(0, len(tuple_arguments), 10)]
@@ -171,13 +177,18 @@ class CPDE(object):
        return cpde,cpde_combined
 
 start_time=time.time()
+
   
 #%% main
 if __name__=='__main__':
     dict_sites_melt=data_load.load_data('site_data_melted')
     binseg=CPDE('binseg',100,dict_sites_melt,True)
-    window=CPDE('window',100,dict_sites_melt,True)
-    
+    window=CPDE('window',50,dict_sites_melt,True)
+    # variables = ['BElarge','BEsmall','EFlarge','EFsmall']
+
+    # tuple_arguments=[(x,y,'window','Min_Raw') for x in dict_sites_melt.keys() for y in variables]
+# 
+    # debug=window.generate_cpde(tuple_arguments[5])
     # binseg,binseg_flat=binseg.run(binseg)
     window,window_flat=window.run(window)
     # save_data(binseg, 'practicum_2022/Results/binseg_full_24')
