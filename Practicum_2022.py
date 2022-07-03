@@ -62,23 +62,18 @@ class CPDE(object):
             else:
             
                 table_ensemble_window = {}
-                if  isinstance(scaling_agg,str):
-
-                    data=SCALING_AGGREGATION[scaling_agg] 
-                    algo=self.get_algo(data)
-                    try:
-                        table_ensemble_window[data] = self.fit_model(algo,y)
-                    except:
-                        table_ensemble_window[data]=None
-                elif isinstance(scaling_agg,list):
-                    for scale in scaling_agg:
-                        data=SCALING_AGGREGATION[scale] 
-                        algo=self.get_algo(data)
-                        try:
-
-                            table_ensemble_window[scale] = self.fit_model(algo, y)
-                        except:
-                            table_ensemble_window[scale]=None
+                try :
+                    if type(scaling_agg) is list:
+                        for scale in scaling_agg:
+                            data=SCALING_AGGREGATION[scale] 
+                            algo=self.get_algo(data)
+                            try:
+    
+                                table_ensemble_window[scale] = self.fit_model(algo, y)
+                            except:
+                                table_ensemble_window[scale]=None
+                except TypeError:
+                    print("Scaling agg needs to be a list")
               
                 return site,table_ensemble_window
 
@@ -183,7 +178,7 @@ start_time=time.time()
 if __name__=='__main__':
     dict_sites_melt=data_load.load_data('site_data_melted')
     binseg=CPDE('binseg',100,dict_sites_melt,True)
-    window=CPDE('window',50,dict_sites_melt,True)
+    window=CPDE('window',50,dict_sites_melt,False)
     # variables = ['BElarge','BEsmall','EFlarge','EFsmall']
 
     # tuple_arguments=[(x,y,'window','Min_Raw') for x in dict_sites_melt.keys() for y in variables]
