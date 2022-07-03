@@ -13,7 +13,30 @@ from itertools import cycle
 from itertools import tee
 import itertools
 import pandas as pd
+import bz2
+import pickle
+import os
+import shutil
 
+
+def load_data_pbz(filename):
+    dictionary = bz2.BZ2File(f'{filename}.pbz2', 'rb')
+    dict_sites_melt = pickle.load(dictionary)
+    return dict_sites_melt
+
+def delete_folder(path):
+
+    for root, dirs, files in os.walk(path):
+        for f in files:
+            os.unlink(os.path.join(root, f))
+        for d in dirs:
+            shutil.rmtree(os.path.join(root, d))
+            
+def save_data(file,filename):
+    with bz2.BZ2File(f'{filename}.pbz2', 'w') as f:
+        pickle.dump(file, f)
+        
+        
 def plot_change_points_pyplot(data_test,dict_sites_melt,file_location_save =None,save_fig=False,show_fig=False):
     for key,data in data_test.items():
         # for cost,points in data.items():

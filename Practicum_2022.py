@@ -66,7 +66,7 @@ class CPDE(object):
 
                     data=SCALING_AGGREGATION[scaling_agg] 
                     algo=self.get_algo(data)
-                    table_ensemble_window[data] = self.fit(algo,y)
+                    table_ensemble_window[data] = self.fit_model(algo,y)
                 elif isinstance(scaling_agg,list):
                     for scale in scaling_agg:
                         data=SCALING_AGGREGATION[scale] 
@@ -79,18 +79,18 @@ class CPDE(object):
     def get_algo(self,scale_aggregation):
         if self.model == 'window':
              algo = rpt.WindowEnsemble(
-             width=10,
+             width=3,
              models=LIST_COSTS,
              params=PARAMS, 
              scale_aggregation=scale_aggregation,
-             jump=5)
+             jump=3)
         elif self.model=='binseg':
              algo = rpt.BinsegEnsemble(
              min_size=5,
              models=LIST_COSTS,
              params=PARAMS, 
              scale_aggregation=scale_aggregation,
-             jump=5
+             jump=3
          )
         return algo
     
@@ -157,7 +157,7 @@ class CPDE(object):
         '''
        variables = ['BElarge','BEsmall','EFlarge','EFsmall']
 
-       tuple_arguments=[(x,y,'window',list(SCALING_AGGREGATION.keys())) for x in self.dict_sites_melt.keys() for y in variables]
+       tuple_arguments=[(x,y,'window',SCALING_AGGREGATION['Min_MinAbs']) for x in self.dict_sites_melt.keys() for y in variables]
        
        with process.ProcessPoolExecutor(max_workers=6) as multiprocessing_executor:
                    chunk= [tuple_arguments[x:x+10] for x in range(0, len(tuple_arguments), 10)]
@@ -169,27 +169,22 @@ class CPDE(object):
        cpde_combined=self.dict_combine_cpde(f2,combine=True)
 
        return cpde,cpde_combined
-def save_data(file,filename):
-    with bz2.BZ2File(f'{filename}.pbz2', 'w') as f:
-        pickle.dump(file, f)
-
-
 
 start_time=time.time()
   
-#%%
+#%% main
 if __name__=='__main__':
     dict_sites_melt=data_load.load_data('site_data_melted')
     binseg=CPDE('binseg',100,dict_sites_melt,True)
     window=CPDE('window',100,dict_sites_melt,True)
     
-    binseg,binseg_flat=binseg.run(binseg)
+    # binseg,binseg_flat=binseg.run(binseg)
     window,window_flat=window.run(window)
-    save_data(binseg, 'practicum_2022/Results/binseg_full_24')
-    save_data(binseg_flat, 'practicum_2022/Results/binseg_flat_24')
+    # save_data(binseg, 'practicum_2022/Results/binseg_full_24')
+    # save_data(binseg_flat, 'practicum_2022/Results/binseg_flat_24')
     
-    save_data(window, 'practicum_2022/Results/window_full_24')
-    save_data(window_flat, 'practicum_2022/Results/widow_flat_24')
+    # save_data(window, 'practicum_2022/Results/window_full_24')
+    # save_data(window_flat, 'practicum_2022/Results/window_flat_24')
 
 
 execution_time=(time.time() - start_time)
