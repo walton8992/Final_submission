@@ -4,7 +4,7 @@
 Class to generate CPDE array 
 
 """
-from  utilities import save_data,change_working_dir
+from  utilities import save_data,change_working_dir,load_data
 
 change_working_dir(r'C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final')
 
@@ -171,7 +171,7 @@ start_time=time.time()
   
 #%% main
 if __name__=='__main__':
-    dict_sites_melt=data_load.load_data('site_data_melted')
+    dict_sites_melt=load_data('Data/site_data_melted')
     binseg=CPDE('binseg',50,dict_sites_melt,False)
     window=CPDE('window',50,dict_sites_melt,False)
     # variables = ['BElarge','BEsmall','EFlarge','EFsmall']
@@ -179,11 +179,11 @@ if __name__=='__main__':
     # tuple_arguments=[(x,y,'window','Min_Raw') for x in dict_sites_melt.keys() for y in variables]
 # 
     # debug=window.generate_cpde(tuple_arguments[5])
-    binseg,binseg_flat=binseg.run(binseg)
+    # binseg,binseg_flat=binseg.run(binseg)
     # window,window_flat=window.run(window)
     
-    save_data(binseg, 'practicum_2022/Results/binseg_full')
-    save_data(binseg_flat, 'practicum_2022/Results/binseg_flat')
+    # save_data(binseg, 'practicum_2022/Results/binseg_full')
+    # save_data(binseg_flat, 'practicum_2022/Results/binseg_flat')
 
     # save_data(binseg, 'practicum_2022/Results/binseg_full_24')
     # save_data(binseg_flat, 'practicum_2022/Results/binseg_flat_24')
