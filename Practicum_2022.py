@@ -163,7 +163,7 @@ class CPDE(object):
         '''
        variables = ['BElarge','BEsmall','EFlarge','EFsmall']
 
-       tuple_arguments=[(x,y,'window','Min_Raw') for x in self.dict_sites_melt.keys() for y in variables]
+       tuple_arguments=[(x,y,'window',['Min_Raw']) for x in self.dict_sites_melt.keys() for y in variables]
        
        with process.ProcessPoolExecutor(max_workers=6) as multiprocessing_executor:
                    chunk= [tuple_arguments[x:x+10] for x in range(0, len(tuple_arguments), 10)]
