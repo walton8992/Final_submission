@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-utility helper
+utility helper for loading/saving and plotting
+
 
 """
 
@@ -19,7 +20,7 @@ import os
 import shutil
 
 
-def load_data_pbz(filename):
+def load_data(filename):
     dictionary = bz2.BZ2File(f'{filename}.pbz2', 'rb')
     dict_sites_melt = pickle.load(dictionary)
     return dict_sites_melt
@@ -105,7 +106,7 @@ def plot_change(flattened_dict,dict_sites_melt):
             else:
                 #unflatten variables
                 #change y to each parameter
-                #%%
+                
                 df_unmelt=pd.DataFrame()
                 for variable in y.variable.unique():
                     temp_df=y[y.variable ==variable]
@@ -126,3 +127,21 @@ def plot_change(flattened_dict,dict_sites_melt):
                 zipped_lists=zip(l1,l2)
                 for (start,end ),col in zip(zipped_lists,color_cycle):
                     ax.axvspan(max(0, start - 0.5), end - 0.5, facecolor=col, alpha=alpha)
+                    
+def generate_tuple_data(melted_dict):
+        
+    example_list=example_list=[x for x in melted_dict.keys()]
+    variables = ['BElarge','BEsmall','EFlarge','EFsmall']
+    tuple_arguments=[(x,y) for x in example_list for y in variables]
+    return tuple_arguments
+
+def change_working_dir(new_dir:str) -> print:
+    '''
+    if working directory not the the argument give, changes to it the enew_dir
+    '''
+    current_dir=os.getcwd()
+    
+    print("current working directory ", current_dir)
+    if current_dir != new_dir:
+        os.chdir(f"{new_dir}")
+        print("Changing to : ",os.getcwd())

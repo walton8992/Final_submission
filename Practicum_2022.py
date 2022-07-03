@@ -1,26 +1,21 @@
 
 # -*- coding: utf-8 -*-
 """
-Class
+Class to generate CPDE array 
 
 """
-import os
+from  utilities import save_data,change_working_dir
 
-current_do=os.getcwd()
-os.chdir(r'C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final')
-DATA=r'Data\\'
+change_working_dir(r'C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final')
+
 import ruptures as rpt
 import numpy as np
-import data_loading as data_load
 from tqdm import tqdm
-import bz2
-import pickle
 from ensemble_methods.aggregations import SCALING_AGGREGATION
 import time
 from concurrent.futures import ThreadPoolExecutor
 from datetime import timedelta
 from concurrent.futures import process
-from  utilities import save_data
 # SCALING_AGGREGATION=SCALING_AGGREGATION.iloc[0]
 SINGLE_COSTS = (
     {'name': 'ar_1', 'cost':'ar', 'params':{'order':1}},
@@ -49,7 +44,7 @@ class CPDE(object):
             self.dict_sites_melt=dict_sites_melt
 
     def multiprocess(self,data):
-        with ThreadPoolExecutor(max_workers = 6) as executor:
+        with ThreadPoolExecutor(max_workers = 4) as executor:
             results = list(tqdm(executor.map(self.generate_cpde,data), total=len(data)))
         return results
     def generate_cpde(self,tuple_argument):
@@ -158,9 +153,9 @@ class CPDE(object):
         '''
        variables = ['BElarge','BEsmall','EFlarge','EFsmall']
 
-       tuple_arguments=[(x,y,'window',['Min_Raw']) for x in self.dict_sites_melt.keys() for y in variables]
+       tuple_arguments=[(x,y,model,['Min_Raw']) for x in self.dict_sites_melt.keys() for y in variables]
        
-       with process.ProcessPoolExecutor(max_workers=6) as multiprocessing_executor:
+       with process.ProcessPoolExecutor(max_workers=3) as multiprocessing_executor:
                    chunk= [tuple_arguments[x:x+10] for x in range(0, len(tuple_arguments), 10)]
                    print("mapping ...")
                    r=multiprocessing_executor.map(model.multiprocess,chunk)
@@ -177,15 +172,19 @@ start_time=time.time()
 #%% main
 if __name__=='__main__':
     dict_sites_melt=data_load.load_data('site_data_melted')
-    binseg=CPDE('binseg',100,dict_sites_melt,True)
+    binseg=CPDE('binseg',50,dict_sites_melt,False)
     window=CPDE('window',50,dict_sites_melt,False)
     # variables = ['BElarge','BEsmall','EFlarge','EFsmall']
 
     # tuple_arguments=[(x,y,'window','Min_Raw') for x in dict_sites_melt.keys() for y in variables]
 # 
     # debug=window.generate_cpde(tuple_arguments[5])
-    # binseg,binseg_flat=binseg.run(binseg)
-    window,window_flat=window.run(window)
+    binseg,binseg_flat=binseg.run(binseg)
+    # window,window_flat=window.run(window)
+    
+    save_data(binseg, 'practicum_2022/Results/binseg_full')
+    save_data(binseg_flat, 'practicum_2022/Results/binseg_flat')
+
     # save_data(binseg, 'practicum_2022/Results/binseg_full_24')
     # save_data(binseg_flat, 'practicum_2022/Results/binseg_flat_24')
     
