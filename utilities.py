@@ -38,7 +38,8 @@ def save_data(file,filename):
         pickle.dump(file, f)
         
         
-def plot_change_points_pyplot(data_test,dict_sites_melt,file_location_save =None,save_fig=False,show_fig=False):
+def plot_change_points_pyplot(data_test,dict_sites_melt,**kwargs):
+
     for key,data in data_test.items():
         # for cost,points in data.items():
             y_sns=dict_sites_melt[key][['datetime','value','variable']]
@@ -53,10 +54,14 @@ def plot_change_points_pyplot(data_test,dict_sites_melt,file_location_save =None
                         
                             date_plot=y_sns['datetime'][x-1]
                             fig.add_vline(date_plot,line_width=2, line_dash='dash',line_color='red')
-                    if show_fig:
-                        fig.show()
-                    if save_fig:
-                        fig.write_html(file_location_save+"/{}_plot.html".format(key+'_'+cost))
+                    if kwargs:
+                        file_location_save=kwargs.get("file_location_save")
+                        save_fig=kwargs.get("save_fig")
+                        show_fig=kwargs.get("show_fig")
+                        if show_fig:
+                            fig.show()
+                        if save_fig:
+                            fig.write_html(file_location_save+"/{}_plot.html".format(key+'_'+cost))
 
 
 def plot_changepoints(flattened_dict,dict_sites_melt,save_loc):

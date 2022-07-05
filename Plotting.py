@@ -6,7 +6,7 @@ load and plot data generate from Pracitcum Class
 """
 #%% library import 
 import utilities
-from utilities import load_data ,delete_folder
+from utilities import load_data ,delete_folder,combine
 import collections
 import Practicum_2022
 import one_model_test
@@ -14,8 +14,9 @@ dict_sites_melt=load_data('Data/site_data_melted')
 binseg,binseg_flat,window,window_flat=Practicum_2022.load()
 list_old_models=one_model_test.load()
 model1=list_old_models[0]
-utilities.plot_changepoints()
-
+#%%
+combined_dict=combine(model1[1])
+utilities.plot_change_points_pyplot(combined_dict,dict_sites_melt,show=True)
 #%% clear folders of old plots
 
 delete_folder('plots/binseg/pyplot')
