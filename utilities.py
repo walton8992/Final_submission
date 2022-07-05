@@ -145,3 +145,31 @@ def change_working_dir(new_dir:str) -> print:
     if current_dir != new_dir:
         os.chdir(f"{new_dir}")
         print("Changing to : ",os.getcwd())
+        
+def combine(dict):
+    '''
+    
+
+    Parameters
+    ----------
+    dict : Type:dictionary
+    Returns
+    -------
+    new_combined_dict : a dictionary of flattened variabled (belarge,besmall)
+    under one dictionary to capture all change points
+    
+    '''
+    new_combined_dict={}
+    for name,dic2 in dict.items():
+       new_combined_dict[name]={}
+       new_combined_dict[name]['all']=[]
+       for cost,list_cp in dic2.items():
+            list_cp_unique=list(set(list_cp))
+          
+            # if len(list_cp_unique)>1:
+            if name not in new_combined_dict:
+                new_combined_dict[name]['all']=list_cp_unique
+            else:
+                new_combined_dict[name]['all']+=list_cp_unique
+       new_combined_dict[name]['all']=list(set(new_combined_dict[name]['all']))
+    return new_combined_dict

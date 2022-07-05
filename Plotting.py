@@ -13,6 +13,9 @@ import one_model_test
 dict_sites_melt=load_data('Data/site_data_melted')
 binseg,binseg_flat,window,window_flat=Practicum_2022.load()
 list_old_models=one_model_test.load()
+model1=list_old_models[0]
+utilities.plot_changepoints()
+
 #%% clear folders of old plots
 
 delete_folder('plots/binseg/pyplot')
@@ -35,6 +38,9 @@ def remove_unuseful_plots(dictionary:dict):
             new_dict[key] = item
     return new_dict
 #%%plot
+
+
+
 dict_real=remove_unuseful_plots(window_flat)
 utilities.plot_change_points_pyplot(binseg_flat, dict_sites_melt,file_location_save='plots/binseg/pyplot',save_fig=True)
 utilities.plot_change_points_pyplot(window_flat, dict_sites_melt,file_location_save='plots/window/pyplot',save_fig=True)
