@@ -16,11 +16,8 @@ import pandas as pd
 import sqlite3
 import pickle
 import bz2
-import plotly.io as pio
 
-import matplotlib.pyplot as plt
 
-pio.renderers.default='browser'
 
 # loading in modules
 # fix if error in db

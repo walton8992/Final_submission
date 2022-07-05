@@ -6,13 +6,29 @@ load and plot data generate from Pracitcum Class
 """
 #%% library import 
 import utilities
-from utilities import load_data ,delete_folder
+from utilities import load_data ,delete_folder,combine
 import collections
+import Practicum_2022
+import one_model_test
+import itertools
+import plotly.io as pio
+
+pio.renderers.default='browser'
+
 dict_sites_melt=load_data('Data/site_data_melted')
-binseg_flat_24=load_data('practicum_2022/Results/binseg_flat_24')
-window_flat_24=load_data('practicum_2022/Results/window_flat_24')
-binseg_flat=load_data('practicum_2022/Results/binseg_flat')
-window_flat=load_data('practicum_2022/Results/window_flat')
+binseg,binseg_flat,window,window_flat=Practicum_2022.load()
+list_old_models=one_model_test.load()
+model1=list_old_models[0]
+model2=list_old_models[1]
+
+combined_dict=combine(model1[1])
+combined_dict_2=combine(model2[1])
+
+small_dict=dict(itertools.islice(combined_dict.items(),3))
+utilities.plot_change_points_pyplot(small_dict,dict_sites_melt,show=True)
+
+# small_dict_2=dict(itertools.islice(combined_dict_2.items(),3))
+# utilities.plot_change_points_pyplot(small_dict_2,dict_sites_melt,show=True)
 #%% clear folders of old plots
 
 delete_folder('plots/binseg/pyplot')
@@ -35,6 +51,9 @@ def remove_unuseful_plots(dictionary:dict):
             new_dict[key] = item
     return new_dict
 #%%plot
+
+
+
 dict_real=remove_unuseful_plots(window_flat)
 utilities.plot_change_points_pyplot(binseg_flat, dict_sites_melt,file_location_save='plots/binseg/pyplot',save_fig=True)
 utilities.plot_change_points_pyplot(window_flat, dict_sites_melt,file_location_save='plots/window/pyplot',save_fig=True)

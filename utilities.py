@@ -18,7 +18,8 @@ import bz2
 import pickle
 import os
 import shutil
-
+import plotly.io as pio
+pio.renderers.default='browser'
 
 def load_data(filename):
     dictionary = bz2.BZ2File(f'{filename}.pbz2', 'rb')
@@ -38,7 +39,8 @@ def save_data(file,filename):
         pickle.dump(file, f)
         
         
-def plot_change_points_pyplot(data_test,dict_sites_melt,file_location_save =None,save_fig=False,show_fig=False):
+def plot_change_points_pyplot(data_test,dict_sites_melt,**kwargs):
+
     for key,data in data_test.items():
         # for cost,points in data.items():
             y_sns=dict_sites_melt[key][['datetime','value','variable']]
@@ -53,10 +55,16 @@ def plot_change_points_pyplot(data_test,dict_sites_melt,file_location_save =None
                         
                             date_plot=y_sns['datetime'][x-1]
                             fig.add_vline(date_plot,line_width=2, line_dash='dash',line_color='red')
-                    if show_fig:
-                        fig.show()
-                    if save_fig:
-                        fig.write_html(file_location_save+"/{}_plot.html".format(key+'_'+cost))
+                    if kwargs:
+                        file_location_save=kwargs.get("file_location_save")
+                        save_fig=kwargs.get("save_fig")
+                        show_fig=kwargs.get("show")
+                        if show_fig:
+                            fig.show()
+                            # fig.show(renderer="svg")
+
+                        if save_fig:
+                            fig.write_html(file_location_save+"/{}_plot.html".format(key+'_'+cost))
 
 
 def plot_changepoints(flattened_dict,dict_sites_melt,save_loc):
@@ -145,3 +153,31 @@ def change_working_dir(new_dir:str) -> print:
     if current_dir != new_dir:
         os.chdir(f"{new_dir}")
         print("Changing to : ",os.getcwd())
+        
+def combine(dict):
+    '''
+    
+
+    Parameters
+    ----------
+    dict : Type:dictionary
+    Returns
+    -------
+    new_combined_dict : a dictionary of flattened variabled (belarge,besmall)
+    under one dictionary to capture all change points
+    
+    '''
+    new_combined_dict={}
+    for name,dic2 in dict.items():
+       new_combined_dict[name]={}
+       new_combined_dict[name]['all']=[]
+       for cost,list_cp in dic2.items():
+            list_cp_unique=list(set(list_cp))
+          
+            # if len(list_cp_unique)>1:
+            if name not in new_combined_dict:
+                new_combined_dict[name]['all']=list_cp_unique
+            else:
+                new_combined_dict[name]['all']+=list_cp_unique
+       new_combined_dict[name]['all']=list(set(new_combined_dict[name]['all']))
+    return new_combined_dict

@@ -166,22 +166,13 @@ class CPDE(object):
 
        return cpde,cpde_combined
 
-start_time=time.time()
+def main(save=False):
 
-  
-#%% main
-if __name__=='__main__':
     dict_sites_melt=load_data('Data/site_data_melted')
     binseg=CPDE('binseg',50,dict_sites_melt,False)
     window=CPDE('window',50,dict_sites_melt,False)
-    # variables = ['BElarge','BEsmall','EFlarge','EFsmall']
-
-    # tuple_arguments=[(x,y,'window','Min_Raw') for x in dict_sites_melt.keys() for y in variables]
-# 
-    # debug=window.generate_cpde(tuple_arguments[5])
-    # binseg,binseg_flat=binseg.run(binseg)
-    # window,window_flat=window.run(window)
-    
+    binseg,binseg_flat=binseg.run(binseg)
+    window,window_flat=window.run(window)
     # save_data(binseg, 'practicum_2022/Results/binseg_full')
     # save_data(binseg_flat, 'practicum_2022/Results/binseg_flat')
 
@@ -190,8 +181,19 @@ if __name__=='__main__':
     
     # save_data(window, 'practicum_2022/Results/window_full_24')
     # save_data(window_flat, 'practicum_2022/Results/window_flat_24')
+def load():
+      
+    binseg,binseg_flat=load_data('practicum_2022/Results/binseg_full'),load_data('practicum_2022/Results/binseg_flat')
+    
+    window,window_flat=load_data('practicum_2022/Results/window_full'),load_data('practicum_2022/Results/window_flat')
+    
+    return binseg,binseg_flat,window,window_flat
 
+if __name__=='__main__':
+    main()
 
-execution_time=(time.time() - start_time)
-time_mins=round(execution_time,0)/60  
+    
 
+if __name__!='__main__':
+    print('loading..')
+    load()
