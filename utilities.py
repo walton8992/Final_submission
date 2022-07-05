@@ -18,7 +18,8 @@ import bz2
 import pickle
 import os
 import shutil
-
+import plotly.io as pio
+pio.renderers.default='browser'
 
 def load_data(filename):
     dictionary = bz2.BZ2File(f'{filename}.pbz2', 'rb')
@@ -57,9 +58,11 @@ def plot_change_points_pyplot(data_test,dict_sites_melt,**kwargs):
                     if kwargs:
                         file_location_save=kwargs.get("file_location_save")
                         save_fig=kwargs.get("save_fig")
-                        show_fig=kwargs.get("show_fig")
+                        show_fig=kwargs.get("show")
                         if show_fig:
                             fig.show()
+                            # fig.show(renderer="svg")
+
                         if save_fig:
                             fig.write_html(file_location_save+"/{}_plot.html".format(key+'_'+cost))
 

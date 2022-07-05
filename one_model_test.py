@@ -11,7 +11,7 @@ change_working_dir(r'C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_fin
 from tqdm import tqdm
 import itertools
 from collections import defaultdict
-from One_model import models as models
+import models as models
 import time
 from concurrent.futures import ThreadPoolExecutor
 import create_data
