@@ -9,8 +9,10 @@ import utilities
 from utilities import load_data ,delete_folder
 import collections
 import Practicum_2022
+import one_model_test
 dict_sites_melt=load_data('Data/site_data_melted')
 binseg,binseg_flat,window,window_flat=Practicum_2022.load()
+list_old_models=one_model_test.load()
 #%% clear folders of old plots
 
 delete_folder('plots/binseg/pyplot')
