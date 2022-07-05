@@ -8,11 +8,9 @@ load and plot data generate from Pracitcum Class
 import utilities
 from utilities import load_data ,delete_folder
 import collections
+import Practicum_2022
 dict_sites_melt=load_data('Data/site_data_melted')
-binseg_flat_24=load_data('practicum_2022/Results/binseg_flat_24')
-window_flat_24=load_data('practicum_2022/Results/window_flat_24')
-binseg_flat=load_data('practicum_2022/Results/binseg_flat')
-window_flat=load_data('practicum_2022/Results/window_flat')
+binseg,binseg_flat,window,window_flat=Practicum_2022.load()
 #%% clear folders of old plots
 
 delete_folder('plots/binseg/pyplot')
