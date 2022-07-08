@@ -5,18 +5,8 @@ Script to generate dictionaries from db filees and site location files
 @author: Alex
 """
 
-# -*- coding: utf-8 -*-
-"""
-Create dictionary of either melted or unmelted data from db file
-
-@author: Alex
-"""
-
 import pandas as pd
 import sqlite3
-import pickle
-import bz2
-
 
 
 # loading in modules
