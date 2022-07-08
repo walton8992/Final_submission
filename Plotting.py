@@ -18,6 +18,7 @@ dict_sites_melt=load_data('Data/site_data_melted')
 binseg,binseg_flat,window,window_flat=Practicum_2022.load()
 list_old_models=one_model_test.load()
 
+#%%Model Load
 model1=list_old_models[0]
 model2=list_old_models[1]
 combined_dict=combine(model1[1])

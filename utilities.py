@@ -92,7 +92,7 @@ def plot_change_points_pyplot(data_test,dict_sites_melt,**kwargs):
                             if kwargs:
                                 title=kwargs.get('title')
                                 if title:
-                                    fig.write_html(file_location_save+"/{}_plot.html".format(key+'_'+title))
+                                    # fig.write_html(file_location_save+"/{}_plot.html".format(key+'_'+title))
                                     fig.write_image(file_location_save+"/{}_plot.png".format(key+'_'+title))
                             else:
                                 fig.write_html(file_location_save+"/{}_plot.html".format(key+'_'+cost))
