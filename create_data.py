@@ -5,20 +5,8 @@ Script to generate dictionaries from db filees and site location files
 @author: Alex
 """
 
-# -*- coding: utf-8 -*-
-"""
-Create dictionary of either melted or unmelted data from db file
-
-@author: Alex
-"""
-
 import pandas as pd
 import sqlite3
-import pickle
-import bz2
-
-
-
 # loading in modules
 # fix if error in db
 # https://sqliteviewer.com/blog/database-disk-image-malformed/
@@ -48,7 +36,6 @@ def get_location_Data(name_file):
     return location_data
 def create_dictionary(melt:bool,table:pd.DataFrame) -> dict:
     list_sites=list(table.name.unique())
-
     #turn into dict
     dict_test={}
     for name in list_sites:

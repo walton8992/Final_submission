@@ -20,7 +20,21 @@ import os
 import shutil
 import plotly.io as pio
 pio.renderers.default='browser'
+import time
+def timethis(func):
+    '''wrapper to time how long module takes
+    '''
+    def wrapper(*args,**kwargs):
+        
+        start=time.time()
+        functions=func(*args,**kwargs)
+        end=time.time()
+        print (f'{func.__name__} took {round(end-start,2)} s')
+        
+        return functions
+    return wrapper
 
+@timethis
 def load_data(filename):
     dictionary = bz2.BZ2File(f'{filename}.pbz2', 'rb')
     dict_sites_melt = pickle.load(dictionary)
@@ -40,7 +54,12 @@ def save_data(file,filename):
         
         
 def plot_change_points_pyplot(data_test,dict_sites_melt,**kwargs):
-
+    # check kwargs savefig
+    if kwargs:
+        if kwargs.get('save_fig'):
+            if not isinstance( kwargs.get('file_location_save') ,str):
+                raise Exception("String needed to save file down")
+                
     for key,data in data_test.items():
         # for cost,points in data.items():
             y_sns=dict_sites_melt[key][['datetime','value','variable']]
@@ -49,7 +68,13 @@ def plot_change_points_pyplot(data_test,dict_sites_melt,**kwargs):
                 if len(date)==1:
                     pass
                 else:
-                    fig = px.line(y_sns, x="datetime", y="value",color='variable',title=key+'_'+cost)
+                    if kwargs:
+                        title=kwargs.get('title')
+                        if title:
+                            fig = px.line(y_sns, x="datetime", y="value",color='variable',title=key+'_'+title)
+
+                    else:
+                        fig = px.line(y_sns, x="datetime", y="value",color='variable',title=key+'_'+cost)
                     for x in date:
                       
                         
@@ -64,7 +89,13 @@ def plot_change_points_pyplot(data_test,dict_sites_melt,**kwargs):
                             # fig.show(renderer="svg")
 
                         if save_fig:
-                            fig.write_html(file_location_save+"/{}_plot.html".format(key+'_'+cost))
+                            if kwargs:
+                                title=kwargs.get('title')
+                                if title:
+                                    fig.write_html(file_location_save+"/{}_plot.html".format(key+'_'+title))
+                                    fig.write_image(file_location_save+"/{}_plot.png".format(key+'_'+title))
+                            else:
+                                fig.write_html(file_location_save+"/{}_plot.html".format(key+'_'+cost))
 
 
 def plot_changepoints(flattened_dict,dict_sites_melt,save_loc):
