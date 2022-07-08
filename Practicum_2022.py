@@ -5,14 +5,11 @@ Class to generate CPDE array
 
 """
 from  utilities import save_data,change_working_dir,load_data
-
 change_working_dir(r'C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final')
-
 import ruptures as rpt
 import numpy as np
 from tqdm import tqdm
 from ensemble_methods.aggregations import SCALING_AGGREGATION
-import time
 from concurrent.futures import ThreadPoolExecutor
 from datetime import timedelta
 from concurrent.futures import process
