@@ -29,6 +29,7 @@ utilities.plot_change_points_pyplot(small_dict,dict_sites_melt,show=True)
 
 # small_dict_2=dict(itertools.islice(combined_dict_2.items(),3))
 # utilities.plot_change_points_pyplot(small_dict_2,dict_sites_melt,show=True)
+
 #%% clear folders of old plots
 
 delete_folder('plots/binseg/pyplot')
