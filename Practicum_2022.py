@@ -27,9 +27,6 @@ PARAMS = {"ar": {'order':1}}
 DESIRED_ORDER = ["Standart", "LowFP", "LowFN"]
 
 
-
-
-
 class CPDE(object):
     
     def __init__(self,model,pen,dict_sites_melt,lookback_duration=False):
