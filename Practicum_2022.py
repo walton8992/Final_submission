@@ -191,7 +191,7 @@ def main():
     # Generate Binseg for all 5 of the below, both flat and combined
 
     binseg, binseg_flat = binseg.run(
-        binseg, ["Min_raw", "Raw", "MinMax", "MinAbs", "Znorm", "Rank"]
+        binseg, ["Min_Raw", "Raw", "MinMax", "MinAbs", "Znorm", "Rank"]
     )
 
     save_data(binseg, "practicum_2022/Results/binseg_full_5_cost_functions")
@@ -201,7 +201,7 @@ def main():
     )
 
     window, window_flat = window.run(
-        window, ["Min_raw", "Raw", "MinMax", "MinAbs", "Znorm", "Rank"]
+        window, ["Min_Raw", "Raw", "MinMax", "MinAbs", "Znorm", "Rank"]
     )
 
     save_data(window, "practicum_2022/Results/window_full_24_5_cost_functions")
