@@ -25,6 +25,8 @@ import create_data
 
 
 class one_Model:
+    """ """
+
     def __init__(self):
         self.dict_sites_melt = load_data(r"Data/site_data_melted")
         self.location_data = create_data.get_location_Data(

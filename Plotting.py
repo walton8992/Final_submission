@@ -16,7 +16,6 @@ import plotly.io as pio
 
 pio.renderers.default = "browser"
 dict_sites_melt = load_data("Data/site_data_melted")
-binseg, binseg_flat, window, window_flat = Practicum_2022.load()
 list_old_models = one_model_test.load()
 
 
@@ -46,10 +45,14 @@ def remove_unuseful_plots(dictionary: dict):
 
 
 class elapsed:
+    """Class to time in ms."""
+
     def __enter__(self):
+        """Start time."""
         self.start = time.time()
 
     def __exit__(self, *args):
+        """End time."""
         print("%.1f ms" % ((time.time() - self.start) * 1000))
 
 
@@ -59,9 +62,9 @@ class elapsed:
 model1 = list_old_models[0]
 model2 = list_old_models[5]
 model3 = list_old_models[6]
-combined_dict = combine(model1[1])
-combined_dict_window = combine(model2[1])
-combined_dict_window_2 = combine(model3[1])
+combined_dict = remove_unuseful_plots(combine(model1[1]))
+combined_dict_window = remove_unuseful_plots(combine(model2[1]))
+combined_dict_window_2 = remove_unuseful_plots(combine(model3[1]))
 
 # %% plotting model 0, model 2 and and model 3
 # attempts to noise effects with different settings
@@ -94,16 +97,24 @@ with elapsed():
         save_fig=True,
         file_location_save=r"plots\old_model\window_rbf_100\\",
     )
-# %%plot
+# %% plot CPDE
+# plot graphs from CPDE module
 
+# HINT loading CPDE output here.
+binseg, binseg_flat, window, window_flat = Practicum_2022.load_flat()
+binseg_flat_final = remove_unuseful_plots(binseg_flat)
+window_flat_final = remove_unuseful_plots(window_flat)
 
-dict_real = remove_unuseful_plots(window_flat)
-utilities.plot_change_points_pyplot(
-    binseg_flat,
-    dict_sites_melt,
-    file_location_save="plots/binseg/pyplot",
-    save_fig=True,
-)
+#
+with elapsed():
+    utilities.plot_change_points_pyplot(
+        binseg_flat_final,
+        dict_sites_melt,
+        show=False,
+        title="CPDE Binseg Combined",
+        file_location_save="plots/binseg/pyplot",
+        save_fig=True,
+    )
 
 utilities.plot_change_points_pyplot(
     window_flat,

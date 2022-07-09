@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
-"""
-Class to generate CPDE array
-
-
-"""
-from utilities import change_working_dir, load_data
+"""Class to generate CPDE array."""
+from utilities import change_working_dir, load_data, save_data
 import ruptures as rpt
 import numpy as np
 from tqdm import tqdm
@@ -146,25 +142,23 @@ class CPDE(object):
         else:
             return test
 
-    def run(self, model):
+    def run(self, model, cost_function: list):
         """
-        Parameters
+        Parameters.
+
         ----------
         model : algo from ensemble
-
-            DESCRIPTION.
-
         Returns
         -------
         cpde : TYPE
             DESCRIPTION.
         cpde_combined : TYPE
-            DESCRIPTION.
+            DESCRIPTION
         """
         variables = ["BElarge", "BEsmall", "EFlarge", "EFsmall"]
 
         tuple_arguments = [
-            (x, y, model, ["Min_Raw"])
+            (x, y, model, cost_function)
             for x in self.dict_sites_melt.keys()
             for y in variables
         ]
@@ -186,25 +180,48 @@ class CPDE(object):
         return cpde, cpde_combined
 
 
-def main(save=False):
-
+def main():
+    """Run CPDE class."""
+    # HINT - Load data, penalty here is seconds class input
     dict_sites_melt = load_data("Data/site_data_melted")
     binseg = CPDE("binseg", 50, dict_sites_melt, False)
     window = CPDE("window", 50, dict_sites_melt, False)
-    binseg, binseg_flat = binseg.run(binseg)
-    window, window_flat = window.run(window)
-    # save_data(binseg, 'practicum_2022/Results/binseg_full')
-    # save_data(binseg_flat, 'practicum_2022/Results/binseg_flat')
 
-    # save_data(binseg, 'practicum_2022/Results/binseg_full_24')
-    # save_data(binseg_flat, 'practicum_2022/Results/binseg_flat_24')
+    # HINT
+    # Generate Binseg for all 5 of the below, both flat and combined
 
-    # save_data(window, 'practicum_2022/Results/window_full_24')
-    # save_data(window_flat, 'practicum_2022/Results/window_flat_24')
+    binseg, binseg_flat = binseg.run(
+        binseg, ["Min_raw", "Raw", "MinMax", "MinAbs", "Znorm", "Rank"]
+    )
+
+    save_data(binseg, "practicum_2022/Results/binseg_full_5_cost_functions")
+
+    save_data(
+        binseg_flat, "practicum_2022/Results/binseg_flat_5_cost_functions"
+    )
+
+    window, window_flat = window.run(
+        window, ["Min_raw", "Raw", "MinMax", "MinAbs", "Znorm", "Rank"]
+    )
+
+    save_data(window, "practicum_2022/Results/window_full_24_5_cost_functions")
+
+    save_data(
+        window_flat, "practicum_2022/Results/window_flat_24_5_cost_functions"
+    )
 
 
-def load():
+def load_flat():
+    """
+    Load iteration of data from CPDE class.
 
+    Returns
+    -------
+    binseg : Dict
+    binseg_flat : Dict
+    window : Dict
+    window_flat : Dict
+    """
     binseg, binseg_flat = load_data(
         "practicum_2022/Results/binseg_full"
     ), load_data("practicum_2022/Results/binseg_flat")
@@ -222,4 +239,4 @@ if __name__ == "__main__":
 
 if __name__ != "__main__":
     print("loading..")
-    load()
+    load_flat()
