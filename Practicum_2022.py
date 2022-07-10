@@ -8,6 +8,7 @@ from ensemble_methods.aggregations import SCALING_AGGREGATION
 from concurrent.futures import ThreadPoolExecutor
 from datetime import timedelta
 from concurrent.futures import process
+import itertools
 
 change_working_dir(
     r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final"
@@ -36,14 +37,12 @@ class CPDE(object):
             self.dict_sites_melt = dict_sites_melt
 
     def multiprocess(self, data):
-        with ThreadPoolExecutor(max_workers=4) as executor:
-            results = list(
-                tqdm(executor.map(self.generate_cpde, data), total=len(data))
-            )
+        with ThreadPoolExecutor(max_workers=8) as executor:
+            results = list(executor.map(self.generate_cpde, data))
         return results
 
     def generate_cpde(self, tuple_argument):
-
+        """Find changepoiunt detection points using lisdt of cost functions."""
         site, var, model, scaling_agg = tuple_argument
         data_site = site
         y = np.array(
@@ -111,14 +110,20 @@ class CPDE(object):
         return dictionary
 
     def dict_combine_cpde(self, list_cp, combine=False):
+        """Get all."""
         test = {}
         for name, dic in list_cp:
             if name not in test.keys():
                 test[name] = dic
             else:
-                l = list(dic.items())
-                for item in l:
+                list_dic = list(dic.items())
+                for item in list_dic:
                     test[name][item[0]] += item[1]
+                    save_data(
+                        test,
+                        "practicum_2022/Results/"
+                        "binseg_full_5_cost_functions",
+                    )
         # this is only if we want to combine all changepoints toether
         if combine:
             new_combined_dict = {}
@@ -155,6 +160,7 @@ class CPDE(object):
         cpde_combined : TYPE
             DESCRIPTION
         """
+        print("run")
         variables = ["BElarge", "BEsmall", "EFlarge", "EFsmall"]
 
         tuple_arguments = [
@@ -162,9 +168,10 @@ class CPDE(object):
             for x in self.dict_sites_melt.keys()
             for y in variables
         ]
+        tuple_arguments = tuple_arguments[:1]
 
         with process.ProcessPoolExecutor(
-            max_workers=3
+            max_workers=6
         ) as multiprocessing_executor:
             chunk = [
                 tuple_arguments[x : x + 10]
@@ -174,41 +181,63 @@ class CPDE(object):
             r = multiprocessing_executor.map(model.multiprocess, chunk)
         final = [r for r in r]
         f2 = [x for xs in final for x in xs if x is not None]
-        cpde = self.dict_combine_cpde(f2)
-        cpde_combined = self.dict_combine_cpde(f2, combine=True)
+        # cpde = self.dict_combine_cpde(f2)
+        # cpde_combined = self.dict_combine_cpde(f2, combine=True)
 
-        return cpde, cpde_combined
+        return f2  # cpde_combined
 
 
+# %%
 def main():
     """Run CPDE class."""
     # HINT - Load data, penalty here is seconds class input
     dict_sites_melt = load_data("Data/site_data_melted")
     binseg = CPDE("binseg", 50, dict_sites_melt, False)
-    window = CPDE("window", 50, dict_sites_melt, False)
+    variables = ["BElarge", "BEsmall", "EFlarge", "EFsmall"]
+
+    tuple_arguments = [
+        (x, y, binseg, ["Min_Raw"])
+        for x in dict_sites_melt.keys()
+        for y in variables
+    ]
+    tuple_arguments = tuple_arguments[0]
+    # %%
+    t1 = binseg.generate_cpde(tuple_arguments)
+    cpde = binseg.dict_combine_cpde([t1])
+    # %%
+    # window = CPDE("window", 50, dict_sites_melt, False)
 
     # HINT
     # Generate Binseg for all 5 of the below, both flat and combined
+    list_cost_functions = ["Min_Raw", "Sum_Raw", "Sum_MinMax", "Min_MinAbs"]
+    binseg, binseg_flat = binseg.run(binseg, list_cost_functions)
+    return binseg, binseg_flat
+    # save_data(binseg, "practicum_2022/Results/binseg_full_4_cost_functions")
 
-    binseg, binseg_flat = binseg.run(
-        binseg, ["Min_Raw", "Raw", "MinMax", "MinAbs", "Znorm", "Rank"]
-    )
+    # save_data(
+    #     binseg_flat, "practicum_2022/Results/binseg_flat_4_cost_functions"
+    # )
 
-    save_data(binseg, "practicum_2022/Results/binseg_full_5_cost_functions")
+    # t=load_data("practicum_2022/Results/binseg_flat_Min_Znorm")
 
-    save_data(
-        binseg_flat, "practicum_2022/Results/binseg_flat_5_cost_functions"
-    )
+    # window, window_flat = window.run(
+    # window,
+    # [
+    # "Min_Raw",
+    # "Sum_Raw",
+    # "Sum_MinMax",
+    # "Min_MinAbs",
+    # "Min_Znorm",
+    # "Min_Rank",
+    # ],
+    # )
 
-    window, window_flat = window.run(
-        window, ["Min_Raw", "Raw", "MinMax", "MinAbs", "Znorm", "Rank"]
-    )
+    # save_data(window,
+    # "practicum_2022/Results/window_full_24_5_cost_functions")
 
-    save_data(window, "practicum_2022/Results/window_full_24_5_cost_functions")
-
-    save_data(
-        window_flat, "practicum_2022/Results/window_flat_24_5_cost_functions"
-    )
+    # save_data(
+    #     window_flat, "practicum_2022/Results/window_flat_24_5_cost_functions"
+    # )
 
 
 def load_flat():
@@ -234,9 +263,23 @@ def load_flat():
 
 
 if __name__ == "__main__":
-    main()
+    dict_sites_melt = load_data("Data/site_data_melted")
+    binseg = CPDE("binseg", 50, dict_sites_melt, False)
+    # variables = ["BElarge", "BEsmall", "EFlarge", "EFsmall"]
+    list_cost_functions = ["Min_Raw", "Sum_Raw", "Sum_MinMax", "Min_MinAbs"]
+
+    # tuple_arguments = [
+    #     (x, y, binseg, list_cost_functions)
+    #     for x in dict_sites_melt.keys()
+    #     for y in variables
+    # ]
+    # tuple_arguments = tuple_arguments[0]
+    # %%
+    t1 = binseg.run(binseg, list_cost_functions)
+    # cpde = binseg.dict_combine_cpde([t1])
 
 
 if __name__ != "__main__":
     print("loading..")
+
     load_flat()
