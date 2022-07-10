@@ -108,8 +108,6 @@ class changePoint:
                             table_ensemble_window[scale] = None
             except TypeError:
                 print("Scaling agg needs to be a list")
-            self.empty_dict[site] = table_ensemble_window
-
             return site, table_ensemble_window
 
     def get_algo(self, scale_aggregation):
@@ -233,7 +231,7 @@ if __name__ == "__main__":
         r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final"
     )
     dict_sites_melt = load_data("Data/site_data_melted")
-    dict_sites_melt = dict(itertools.islice(dict_sites_melt.items(), 5))
+    dict_sites_melt = dict(itertools.islice(dict_sites_melt.items(), 3))
 
     binseg = changePoint(
         model="binseg",
@@ -245,16 +243,3 @@ if __name__ == "__main__":
     #%%
     t2 = binseg.dict_combine_cpde(t1)
     t3 = flatten_dict_all(t2)
-    #%% Test
-    # dict_sites_melt = load_data("Data/site_data_melted")
-    # dict_sites_melt = dict(itertools.islice(dict_sites_melt.items(), 1))
-    # #%%
-    # binseg = changePoint(
-    #     model="binseg",
-    #     pen=50,
-    #     dict_sites_melt=dict_sites_melt,
-    #     cost_function=["Min_Raw", "Sum_Raw", "Sum_MinMax", "Min_MinAbs"],
-    # )
-    # tuple_args = binseg.tuple_arguments
-    # # %%
-    # cpde = binseg.generate_cpde(tuple_args[0])

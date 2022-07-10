@@ -23,7 +23,6 @@ SCALING_AGGREGATION = {
     "Max_Rank": lambda array: max_(rank(array)),
 }
 
-
 # Scaling functions
 def minmax(array):
     return (array - np.max(array, axis=0)) / (
