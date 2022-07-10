@@ -13,9 +13,7 @@ from datetime import timedelta
 from concurrent.futures import process
 import itertools
 
-change_working_dir(
-    r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final"
-)
+
 # SCALING_AGGREGATION=SCALING_AGGREGATION.iloc[0]
 SINGLE_COSTS = (
     {"name": "ar_1", "cost": "ar", "params": {"order": 1}},
@@ -35,8 +33,8 @@ class changePoint:
 
     def __init__(
         self,
-        model,
-        pen,
+        model: type(rpt),
+        pen: int,
         cost_function: list,
         dict_sites_melt: dict,
         lookback_duration=False,
@@ -95,19 +93,21 @@ class changePoint:
         else:
 
             table_ensemble_window = {}
+            table_ensemble_window[var] = {}
             try:
                 if type(scaling_agg) is list:
                     for scale in scaling_agg:
                         data = SCALING_AGGREGATION[scale]
                         algo = self.get_algo(data)
-                        # try:
+                        try:
 
-                        table_ensemble_window[scale] = self.fit_model(algo, y)
-                        # except:
-                        # table_ensemble_window[scale] = None
+                            table_ensemble_window[var][scale] = self.fit_model(
+                                algo, y
+                            )
+                        except:
+                            table_ensemble_window[scale] = None
             except TypeError:
                 print("Scaling agg needs to be a list")
-
             return site, table_ensemble_window
 
     def get_algo(self, scale_aggregation):
@@ -172,11 +172,68 @@ class changePoint:
         f2 = [x for xs in final for x in xs if x is not None]
         return f2
 
+    def dict_combine_cpde(self, list_cp, combine=False):
+        """Get all from list of tuples to dict.
 
+        This should return dict in format of each site,
+        each variable and then each cpde detected for that variable
+
+        Returns:
+            -dict
+        """
+        test = {}
+        for name, dic in list_cp:
+            if name not in test.keys():
+                test[name] = dic
+            else:
+                list_dic = list(dic.items())
+                for item in list_dic:
+                    # HINT item here is a tuple of
+                    # variable and the cost function cPD detected
+
+                    test[name][item[0]] = item[1]
+
+        return test
+
+
+def flatten_dict_all(dictionary_results: dict):
+    """Flatten dict one stage further.
+
+    We want to be able to flatten to see,
+    for each of the cost functions, what cpde we get
+    and then compare each method with graphs.
+
+    Args:
+        -dict
+
+    Returns:
+            -dict
+    """
+    new_dict = {}
+    for site, feature_var in dictionary_results.items():
+        new_dict[site] = {}
+        list_of_features = list(feature_var.keys())
+        for feature in list_of_features:
+            data = feature_var[feature]
+            for cost, changepoint in data.items():
+                if cost not in new_dict[site]:
+
+                    new_dict[site][cost] = changepoint
+                else:
+                    new_dict[site][cost] = list(
+                        set(changepoint + new_dict[site][cost])
+                    )
+
+    return new_dict
+
+
+# %% Run main
 if __name__ == "__main__":
-
+    change_working_dir(
+        r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final"
+    )
     dict_sites_melt = load_data("Data/site_data_melted")
-    dict_sites_melt = dict(itertools.islice(dict_sites_melt.items(), 2))
+    # dict_sites_melt = dict(itertools.islice(dict_sites_melt.items(), 1))
 
     binseg = changePoint(
         model="binseg",
@@ -185,3 +242,22 @@ if __name__ == "__main__":
         cost_function=["Min_Raw", "Sum_Raw", "Sum_MinMax", "Min_MinAbs"],
     )
     t1 = binseg.multiprocessing_method()
+    save_data(
+        t1,
+        "practicum_2022/Results/" "binseg_full_5_cost_functions",
+    )
+    t2 = binseg.dict_combine_cpde(t1)
+    t3 = flatten_dict_all(t2)
+
+    window = changePoint(
+        model="window",
+        pen=50,
+        dict_sites_melt=dict_sites_melt,
+        cost_function=["Min_Raw", "Sum_Raw", "Sum_MinMax", "Min_MinAbs"],
+    )
+
+    w1 = window.multiprocessing_method()
+    save_data(
+        w1,
+        "practicum_2022/Results/" "binseg_full_5_cost_functions",
+    )
