@@ -220,7 +220,9 @@ def flatten_dict_all(dictionary_results: dict):
 
                     new_dict[site][cost] = changepoint
                 else:
-                    new_dict[site][cost].append(changepoint)
+                    new_dict[site][cost] = list(
+                        set(changepoint + new_dict[site][cost])
+                    )
 
     return new_dict
 
@@ -231,7 +233,7 @@ if __name__ == "__main__":
         r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final"
     )
     dict_sites_melt = load_data("Data/site_data_melted")
-    dict_sites_melt = dict(itertools.islice(dict_sites_melt.items(), 3))
+    # dict_sites_melt = dict(itertools.islice(dict_sites_melt.items(), 1))
 
     binseg = changePoint(
         model="binseg",
@@ -240,6 +242,22 @@ if __name__ == "__main__":
         cost_function=["Min_Raw", "Sum_Raw", "Sum_MinMax", "Min_MinAbs"],
     )
     t1 = binseg.multiprocessing_method()
-    #%%
+    save_data(
+        t1,
+        "practicum_2022/Results/" "binseg_full_5_cost_functions",
+    )
     t2 = binseg.dict_combine_cpde(t1)
     t3 = flatten_dict_all(t2)
+
+    window = changePoint(
+        model="window",
+        pen=50,
+        dict_sites_melt=dict_sites_melt,
+        cost_function=["Min_Raw", "Sum_Raw", "Sum_MinMax", "Min_MinAbs"],
+    )
+
+    w1 = window.multiprocessing_method()
+    save_data(
+        w1,
+        "practicum_2022/Results/" "binseg_full_5_cost_functions",
+    )
