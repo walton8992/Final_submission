@@ -1,62 +1,130 @@
 # -*- coding: utf-8 -*-
 """
 load and plot data generate from Pracitcum Class
-
+Both the CPD as well as CPDEmodels
 @author: Alex
 """
-#%% library import 
+# %% library import
+
 import utilities
-from utilities import load_data ,delete_folder,combine
+from utilities import load_data, delete_folder, combine
 import collections
 import Practicum_2022
 import one_model_test
-import itertools
 import time
 import plotly.io as pio
-pio.renderers.default='browser'
-dict_sites_melt=load_data('Data/site_data_melted')
-binseg,binseg_flat,window,window_flat=Practicum_2022.load()
-list_old_models=one_model_test.load()
 
-model1=list_old_models[0]
-model2=list_old_models[1]
-combined_dict=combine(model1[1])
-combined_dict_2=combine(model2[1])
-
-#%% plotting 2
-# small_dict=dict(itertools.islice(combined_dict.items(),3))
-utilities.plot_change_points_pyplot(combined_dict,dict_sites_melt,show=False,title='bottom_up l2',save_fig=True, file_location_save=r'plots\old_model\bottom_up_l2\\')
-  
-# small_dict_2=dict(itertools.islice(combined_dict_2.items(),3))
-# utilities.plot_change_points_pyplot(small_dict_2,dict_sites_melt,show=True)
-
-#%% clear folders of old plots
-
-delete_folder('plots/binseg/pyplot')
-delete_folder('plots/binseg/matplotlib')
-delete_folder('plots/window/pyplot')
-delete_folder('plots/window/matplotlib')
+pio.renderers.default = "browser"
+dict_sites_melt = load_data("Data/site_data_melted")
+list_old_models = one_model_test.load()
 
 
-#%%
-def remove_unuseful_plots(dictionary:dict):
-    '''
-    Want to remove those with just end plot'''
-   
-    new_dict=collections.defaultdict(dict)
-    plot_dict=dictionary
-    for key,item in plot_dict.items():
-        if len (list(item.values())[0])==1:
+def clear_folder_plots():
+    """
+    To clear folder of plots quickly
+    """
+    delete_folder("plots/binseg/pyplot")
+    delete_folder("plots/binseg/matplotlib")
+    delete_folder("plots/window/pyplot")
+    delete_folder("plots/window/matplotlib")
+
+
+def remove_unuseful_plots(dictionary: dict):
+    """
+    Want to remove those with just line at the end of the plot plot
+    """
+
+    new_dict = collections.defaultdict(dict)
+    plot_dict = dictionary
+    for key, item in plot_dict.items():
+        if len(list(item.values())[0]) == 1:
             pass
         else:
             new_dict[key] = item
     return new_dict
-#%%plot
 
 
+class elapsed:
+    """Class to time in ms."""
 
-dict_real=remove_unuseful_plots(window_flat)
-utilities.plot_change_points_pyplot(binseg_flat, dict_sites_melt,file_location_save='plots/binseg/pyplot',save_fig=True)
-utilities.plot_change_points_pyplot(window_flat, dict_sites_melt,file_location_save='plots/window/pyplot',save_fig=True)
-utilities.plot_changepoints(binseg_flat,dict_sites_melt,save_loc='plots/binseg/matplotlib')
-utilities.plot_changepoints(window_flat,dict_sites_melt,save_loc='plots/window/matplotlib')
+    def __enter__(self):
+        """Start time."""
+        self.start = time.time()
+
+    def __exit__(self, *args):
+        """End time."""
+        print("%.1f ms" % ((time.time() - self.start) * 1000))
+
+
+# %% loading model examples
+
+
+model1 = list_old_models[0]
+model2 = list_old_models[5]
+model3 = list_old_models[6]
+combined_dict = remove_unuseful_plots(combine(model1[1]))
+combined_dict_window = remove_unuseful_plots(combine(model2[1]))
+combined_dict_window_2 = remove_unuseful_plots(combine(model3[1]))
+
+# %% plotting model 0, model 2 and and model 3
+# attempts to noise effects with different settings
+with elapsed():
+    utilities.plot_change_points_pyplot(
+        combined_dict,
+        dict_sites_melt,
+        show=False,
+        title="bottom_up l2",
+        save_fig=True,
+        file_location_save=r"plots\old_model\bottom_up_l2\\",
+    )
+
+with elapsed():
+    utilities.plot_change_points_pyplot(
+        combined_dict_window,
+        dict_sites_melt,
+        show=False,
+        title="Window rbf. Pen = 0.65",
+        save_fig=True,
+        file_location_save=r"plots\old_model\window_rbf\\",
+    )
+
+with elapsed():
+    utilities.plot_change_points_pyplot(
+        combined_dict_window_2,
+        dict_sites_melt,
+        show=False,
+        title="Window rbf. Pen = 100",
+        save_fig=True,
+        file_location_save=r"plots\old_model\window_rbf_100\\",
+    )
+# %% plot CPDE
+# plot graphs from CPDE module
+
+# HINT loading CPDE output here.
+binseg, binseg_flat, window, window_flat = Practicum_2022.load_flat()
+binseg_flat_final = remove_unuseful_plots(binseg_flat)
+window_flat_final = remove_unuseful_plots(window_flat)
+
+#
+with elapsed():
+    utilities.plot_change_points_pyplot(
+        binseg_flat_final,
+        dict_sites_melt,
+        show=False,
+        title="CPDE Binseg Combined",
+        file_location_save="plots/binseg/pyplot",
+        save_fig=True,
+    )
+
+utilities.plot_change_points_pyplot(
+    window_flat,
+    dict_sites_melt,
+    file_location_save="plots/window/pyplot",
+    save_fig=True,
+)
+utilities.plot_changepoints(
+    binseg_flat, dict_sites_melt, save_loc="plots/binseg/matplotlib"
+)
+utilities.plot_changepoints(
+    window_flat, dict_sites_melt, save_loc="plots/window/matplotlib"
+)
