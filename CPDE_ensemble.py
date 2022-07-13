@@ -3,7 +3,7 @@
 Class to generate CPDE for input list of dictionaries, and variables - with CPDE
 
 """
-from utilities import change_working_dir, load_data, save_data
+from utilities import change_working_dir, load_data, save_data, timethis
 import ruptures as rpt
 import numpy as np
 from tqdm import tqdm
@@ -229,6 +229,42 @@ def flatten_dict_all(dictionary_results: dict):
     return new_dict
 
 
+def split_dict(main_dict, split_number):
+    """Split dict into manageable parts."""
+    key_list = list(main_dict.keys())
+    splits = int(round(len(key_list) / split_number, 0))
+
+    main_dict_1 = dict((k, main_dict[k]) for k in key_list[:splits])
+    main_dict_2 = dict(
+        (k, main_dict[k]) for k in key_list[splits : splits * 2]
+    )
+    main_dict_3 = dict(
+        (k, main_dict[k]) for k in key_list[splits * 2 : splits * 3]
+    )
+    main_dict_4 = dict((k, main_dict[k]) for k in key_list[splits * 3 :])
+    # main_dict_5 = dict((k, main_dict[k]) for k in key_list[:1])
+
+    combined_dict = {
+        **main_dict_1,
+        **main_dict_2,
+        **main_dict_3,
+        # **main_dict_5,
+        **main_dict_4,
+    }
+    assert len(combined_dict.keys()) == len(
+        dict_sites_melt_main
+    ), "Error in splitting dicts"
+
+    FUNCTION_DICT = {
+        "dict_1": main_dict_1,
+        "dict_2": main_dict_2,
+        "dict_3": main_dict_3,
+        "dict_4": main_dict_4,
+        # "dict_5": main_dict_5,
+    }
+    return FUNCTION_DICT
+
+
 # %% Run main
 if __name__ == "__main__":
     change_working_dir(
@@ -240,36 +276,8 @@ if __name__ == "__main__":
     dict_sites_melt_main = collections.OrderedDict(
         sorted(dict_sites_melt_main.items())
     )
-    key_list = list(dict_sites_melt_main.keys())
-    splits = int(round(len(key_list) / 4, 0))
-    dict_sites_melt_1 = dict(
-        (k, dict_sites_melt_main[k]) for k in key_list[:splits]
-    )
-    dict_sites_melt_2 = dict(
-        (k, dict_sites_melt_main[k]) for k in key_list[splits : splits * 2]
-    )
-    dict_sites_melt_3 = dict(
-        (k, dict_sites_melt_main[k]) for k in key_list[splits * 2 : splits * 3]
-    )
-    dict_sites_melt_4 = dict(
-        (k, dict_sites_melt_main[k]) for k in key_list[splits * 3 :]
-    )
-    combined_dict = {
-        **dict_sites_melt_1,
-        **dict_sites_melt_2,
-        **dict_sites_melt_3,
-        **dict_sites_melt_4,
-    }
-    assert len(combined_dict.keys()) == len(
-        dict_sites_melt_main
-    ), "Error in splitting dicts"
+    FUNCTION_DICT = split_dict(dict_sites_melt_main, 4)
 
-    FUNCTION_DICT = {
-        "dict_1": dict_sites_melt_1,
-        "dict_2": dict_sites_melt_2,
-        "dict_3": dict_sites_melt_3,
-        "dict_4": dict_sites_melt_4,
-    }
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "-d", "--dictionary", help="Dictionary of list", type=str
@@ -288,7 +296,7 @@ if __name__ == "__main__":
     save_data(
         t1,
         "practicum_2022/Results/"
-        "binseg_full_5_cost_functions" + args.dictionarty,
+        "binseg_full_5_cost_functions_" + args.dictionary,
     )
     # t2 = binseg.dict_combine_cpde(t1)
     # t3 = flatten_dict_all(t2)
@@ -305,3 +313,6 @@ if __name__ == "__main__":
 #         w1,
 #         "practicum_2022/Results/" "binseg_full_5_cost_functions",
 #     )
+# test = load_data(
+#     "practicum_2022/Results/" "binseg_full_5_cost_functionsdict_5"
+# )
