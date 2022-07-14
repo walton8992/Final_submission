@@ -25,6 +25,61 @@ import plotly.io as pio
 pio.renderers.default = "browser"
 
 
+def dict_combine_cpde(list_cp, combine=False):
+    """Get all from list of tuples to dict.
+
+    This should return dict in format of each site,
+    each variable and then each cpde detected for that variable
+
+    Returns:
+        -dict
+    """
+    test = {}
+    for name, dic in list_cp:
+        if name not in test.keys():
+            test[name] = dic
+        else:
+            list_dic = list(dic.items())
+            for item in list_dic:
+                # HINT item here is a tuple of
+                # variable and the cost function cPD detected
+
+                test[name][item[0]] = item[1]
+
+    return test
+
+
+def flatten_dict_all(dictionary_results: dict):
+    """Flatten dict one stage further.
+
+    We want to be able to flatten to see,
+    for each of the cost functions, what cpde we get
+    and then compare each method with graphs.
+
+    Args:
+        -dict
+
+    Returns:
+            -dict
+    """
+    new_dict = {}
+    for site, feature_var in dictionary_results.items():
+        new_dict[site] = {}
+        list_of_features = list(feature_var.keys())
+        for feature in list_of_features:
+            data = feature_var[feature]
+            for cost, changepoint in data.items():
+                if cost not in new_dict[site]:
+
+                    new_dict[site][cost] = changepoint
+                else:
+                    new_dict[site][cost] = list(
+                        set(changepoint + new_dict[site][cost])
+                    )
+
+    return new_dict
+
+
 def timethis(func):
     """wrapper to time how long module takes"""
 

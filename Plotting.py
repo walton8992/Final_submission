@@ -7,12 +7,19 @@ Both the CPD as well as CPDEmodels
 # %% library import
 
 import utilities
-from utilities import load_data, delete_folder, combine
+from utilities import (
+    load_data,
+    delete_folder,
+    combine,
+    dict_combine_cpde,
+    flatten_dict_all,
+)
 import collections
 import Practicum_2022
 import one_model_test
 import time
 import plotly.io as pio
+import os
 
 pio.renderers.default = "browser"
 dict_sites_melt = load_data("Data/site_data_melted")
@@ -55,6 +62,19 @@ class elapsed:
         """End time."""
         print("%.1f ms" % ((time.time() - self.start) * 1000))
 
+
+def load_main_data():
+    """Load main data for 5 test models."""
+    dict_total = {}
+    for filename in os.listdir(r"practicum_2022/Results/main_data"):
+        file = load_data(r"practicum_2022/Results/main_data/" + filename[:-5])
+        file_combined = dict_combine_cpde(file)
+        file_flat = flatten_dict_all(file_combined)
+        dict_total = {**dict_total, **file_flat}
+    return dict_total
+
+
+main_dict = load_main_data()
 
 # %% loading model examples
 

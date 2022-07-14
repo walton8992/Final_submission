@@ -3,7 +3,7 @@
 Class to generate CPDE for input list of dictionaries, and variables - with CPDE
 
 """
-from utilities import change_working_dir, load_data, save_data
+from utilities import change_working_dir, load_data, save_data, timethis
 import ruptures as rpt
 import numpy as np
 from tqdm import tqdm
@@ -12,7 +12,9 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import timedelta
 from concurrent.futures import process
 import itertools
-
+import collections
+import pandas as pd
+import argparse
 
 # SCALING_AGGREGATION=SCALING_AGGREGATION.iloc[0]
 SINGLE_COSTS = (
@@ -227,37 +229,90 @@ def flatten_dict_all(dictionary_results: dict):
     return new_dict
 
 
+def split_dict(main_dict, split_number):
+    """Split dict into manageable parts."""
+    key_list = list(main_dict.keys())
+    splits = int(round(len(key_list) / split_number, 0))
+
+    main_dict_1 = dict((k, main_dict[k]) for k in key_list[:splits])
+    main_dict_2 = dict(
+        (k, main_dict[k]) for k in key_list[splits : splits * 2]
+    )
+    main_dict_3 = dict(
+        (k, main_dict[k]) for k in key_list[splits * 2 : splits * 3]
+    )
+    main_dict_4 = dict((k, main_dict[k]) for k in key_list[splits * 3 :])
+    # main_dict_5 = dict((k, main_dict[k]) for k in key_list[:1])
+
+    combined_dict = {
+        **main_dict_1,
+        **main_dict_2,
+        **main_dict_3,
+        # **main_dict_5,
+        **main_dict_4,
+    }
+    assert len(combined_dict.keys()) == len(
+        dict_sites_melt_main
+    ), "Error in splitting dicts"
+
+    FUNCTION_DICT = {
+        "dict_1": main_dict_1,
+        "dict_2": main_dict_2,
+        "dict_3": main_dict_3,
+        "dict_4": main_dict_4,
+        # "dict_5": main_dict_5,
+    }
+    return FUNCTION_DICT
+
+
 # %% Run main
 if __name__ == "__main__":
     change_working_dir(
         r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final"
     )
-    dict_sites_melt = load_data("Data/site_data_melted")
-    # dict_sites_melt = dict(itertools.islice(dict_sites_melt.items(), 1))
+    dict_sites_melt_main = load_data("Data/site_data_melted")
+    # HINT split into smaller dicts for processing
 
+    dict_sites_melt_main = collections.OrderedDict(
+        sorted(dict_sites_melt_main.items())
+    )
+    FUNCTION_DICT = split_dict(dict_sites_melt_main, 4)
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-d", "--dictionary", help="Dictionary of list", type=str
+    )
+    args = parser.parse_args()
+    dict_run_model = FUNCTION_DICT[args.dictionary]
+
+    # print("test", args.dictionary)
     binseg = changePoint(
         model="binseg",
         pen=50,
-        dict_sites_melt=dict_sites_melt,
+        dict_sites_melt=dict_run_model,
         cost_function=["Min_Raw", "Sum_Raw", "Sum_MinMax", "Min_MinAbs"],
     )
     t1 = binseg.multiprocessing_method()
     save_data(
         t1,
-        "practicum_2022/Results/" "binseg_full_5_cost_functions",
+        "practicum_2022/Results/"
+        "binseg_full_5_cost_functions_" + args.dictionary,
     )
-    t2 = binseg.dict_combine_cpde(t1)
-    t3 = flatten_dict_all(t2)
+    # t2 = binseg.dict_combine_cpde(t1)
+    # t3 = flatten_dict_all(t2)
 
-    window = changePoint(
-        model="window",
-        pen=50,
-        dict_sites_melt=dict_sites_melt,
-        cost_function=["Min_Raw", "Sum_Raw", "Sum_MinMax", "Min_MinAbs"],
-    )
+#     window = changePoint(
+#         model="window",
+#         pen=50,
+#         dict_sites_melt=dict_sites_melt,
+#         cost_function=["Min_Raw", "Sum_Raw", "Sum_MinMax", "Min_MinAbs"],
+#     )
 
-    w1 = window.multiprocessing_method()
-    save_data(
-        w1,
-        "practicum_2022/Results/" "binseg_full_5_cost_functions",
-    )
+#     w1 = window.multiprocessing_method()
+#     save_data(
+#         w1,
+#         "practicum_2022/Results/" "binseg_full_5_cost_functions",
+#     )
+# test = load_data(
+#     "practicum_2022/Results/" "binseg_full_5_cost_functionsdict_5"
+# )
