@@ -5,7 +5,7 @@ Live detection case
 Use multiple thread and process to speed detection
 
 """
-from utilities import load_data, change_working_dir
+from utilities import load_data, change_working_dir, plot_change_points_pyplot
 from CPDE_ensemble import changePoint
 import itertools
 import time
@@ -19,8 +19,8 @@ dict_sites_melt = load_data(r"Data\melted_dict_data\site_data_melted")
 # small_dict = dict(itertools.islice(dict_sites_melt.items(), 5))
 
 window = changePoint(
-    model="window",
-    pen=20,
+    model="pelt",
+    pen=30,
     dict_sites_melt=dict_sites_melt,
     cost_function=list(["Min_MinAbs"]),
     lookback_duration=True,
@@ -33,3 +33,12 @@ if __name__ == "__main__":
     main = window.dict_combine_cpde(multiThread)
     main = window.flatten_dict_all(main)
     main = remove_unuseful_plots(main)
+
+    plot_change_points_pyplot(
+        main,
+        dict_sites_melt,
+        show=False,
+        title="Window. Pen = 30, cost=Min_MinAbs",
+        save_fig=True,
+        file_location_save=r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final\plots\pelt",
+    )

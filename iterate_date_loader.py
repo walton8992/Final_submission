@@ -48,7 +48,9 @@ def split_dict(main_dict, split_number):
 change_working_dir(
     r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final"
 )
-dict_sites_melt_main = load_data("Data/site_data_melted")
+dict_sites_melt_main = load_data(
+    "practicum_2022/Data/melted_dict_data/site_data_melted"
+)
 # HINT split into smaller dicts for processing
 
 dict_sites_melt_main = collections.OrderedDict(

@@ -151,6 +151,12 @@ class changePoint:
                 params=PARAMS,
                 scale_aggregation=scale_aggregation,
             )
+        elif self.model == "pelt":
+            algo = rpt.Pelt(
+                min_size=5,
+                model="l2",
+                params=None,
+            )
         return algo
 
     def _generate_tuple_argument(
@@ -274,12 +280,15 @@ def split_dict(main_dict, split_number):
 
 def main(dictionary, FUNCTION_DICT):
 
-    dict_sites_melt_main = load_data("practicum_2022/Data/site_data_melted")
+    dict_sites_melt_main = load_data(
+        r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final\practicum_2022\Data\melted_dict_data\site_data_melted"
+    )
     # HINT split into smaller dicts for processing
 
     dict_sites_melt_main = collections.OrderedDict(
         sorted(dict_sites_melt_main.items())
     )
+    # FUNCTION_DICT = split_dict(dict_sites_melt_main, 100)
     dict_run_model = FUNCTION_DICT[dictionary]
 
     # print("test", args.dictionary)
@@ -310,5 +319,9 @@ if __name__ == "__main__":
     parser.add_argument(
         "-d", "--dictionary", help="Dictionary of list", type=str
     )
+    parser.add_argument("-s", "--splits", help="number of splits", type=int)
+
     args = parser.parse_args()
-    main(args.dictionary)
+    main_dict = load_data("Data/melted_dict_data/site_data_melted")
+    FUNCTION_DICT = split_dict(main_dict, args.splits)
+    main(args.dictionary, FUNCTION_DICT)
