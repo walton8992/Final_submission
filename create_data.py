@@ -9,9 +9,6 @@ import pandas as pd
 import sqlite3
 from utilities import save_data, change_working_dir
 
-change_working_dir(
-    r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final"
-)
 
 # loading in modules
 # fix if error in db
@@ -78,11 +75,16 @@ def create_data(file_location_database, file_location_sites):
     return raw_data, location_data, dict_sites_melt
 
 
-data_created = create_data(
-    r"Data\Train_Data\\",
-    r"Data\\",
-)
-#%%
-save_data(
-    data_created[2], "practicum_2022\Data\melted_site_dict\dict_sites_melt_2"
-)
+if __name__ == "__main__":
+    change_working_dir(
+        r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final"
+    )
+    data_created = create_data(
+        r"Data\Train_Data\\",
+        r"Data\\",
+    )
+    #%%
+    save_data(
+        data_created[2],
+        "practicum_2022\Data\melted_dict_data\dict_sites_melt_2",
+    )

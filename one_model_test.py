@@ -12,9 +12,6 @@ from utilities import (
     change_working_dir,
 )
 
-change_working_dir(
-    r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final"
-)
 from tqdm import tqdm
 import itertools
 from collections import defaultdict
@@ -117,4 +114,8 @@ def load():
 
 
 if __name__ == "__main__":
+
+    change_working_dir(
+        r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final"
+    )
     main()

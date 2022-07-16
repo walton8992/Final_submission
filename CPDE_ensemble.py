@@ -212,36 +212,35 @@ class changePoint:
 
         return test
 
+    def flatten_dict_all(self, dictionary_results: dict):
+        """Flatten dict one stage further.
 
-def flatten_dict_all(dictionary_results: dict):
-    """Flatten dict one stage further.
+        We want to be able to flatten to see,
+        for each of the cost functions, what cpde we get
+        and then compare each method with graphs.
 
-    We want to be able to flatten to see,
-    for each of the cost functions, what cpde we get
-    and then compare each method with graphs.
-
-    Args:
-        -dict
-
-    Returns:
+        Args:
             -dict
-    """
-    new_dict = {}
-    for site, feature_var in dictionary_results.items():
-        new_dict[site] = {}
-        list_of_features = list(feature_var.keys())
-        for feature in list_of_features:
-            data = feature_var[feature]
-            for cost, changepoint in data.items():
-                if cost not in new_dict[site]:
 
-                    new_dict[site][cost] = changepoint
-                else:
-                    new_dict[site][cost] = list(
-                        set(changepoint + new_dict[site][cost])
-                    )
+        Returns:
+                -dict
+        """
+        new_dict = {}
+        for site, feature_var in dictionary_results.items():
+            new_dict[site] = {}
+            list_of_features = list(feature_var.keys())
+            for feature in list_of_features:
+                data = feature_var[feature]
+                for cost, changepoint in data.items():
+                    if cost not in new_dict[site]:
 
-    return new_dict
+                        new_dict[site][cost] = changepoint
+                    else:
+                        new_dict[site][cost] = list(
+                            set(changepoint + new_dict[site][cost])
+                        )
+
+        return new_dict
 
 
 def split_dict(main_dict, split_number):
@@ -275,7 +274,7 @@ def split_dict(main_dict, split_number):
 
 def main(dictionary, FUNCTION_DICT):
 
-    dict_sites_melt_main = load_data("Data/site_data_melted")
+    dict_sites_melt_main = load_data("practicum_2022/Data/site_data_melted")
     # HINT split into smaller dicts for processing
 
     dict_sites_melt_main = collections.OrderedDict(
