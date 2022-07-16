@@ -83,4 +83,6 @@ data_created = create_data(
     r"Data\\",
 )
 #%%
-# save_data(data_created[2],"Data\dict_sites_melt_2")
+save_data(
+    data_created[2], "practicum_2022\Data\melted_site_dict\dict_sites_melt_2"
+)
