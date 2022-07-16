@@ -27,9 +27,7 @@ list_old_models = one_model_test.load()
 
 
 def clear_folder_plots():
-    """
-    To clear folder of plots quickly
-    """
+    """To clear folder of plots quickly."""
     delete_folder("plots/binseg/pyplot")
     delete_folder("plots/binseg/matplotlib")
     delete_folder("plots/window/pyplot")
@@ -37,10 +35,7 @@ def clear_folder_plots():
 
 
 def remove_unuseful_plots(dictionary: dict):
-    """
-    Want to remove those with just line at the end of the plot plot
-    """
-
+    """Want to remove those with just line at the end of the plot."""
     new_dict = collections.defaultdict(dict)
     plot_dict = dictionary
     for key, item in plot_dict.items():
@@ -74,7 +69,26 @@ def load_main_data():
     return dict_total
 
 
+def load_list_data():
+    """Load data from test_data folder.
+
+    This is the folder that has all cost functions
+
+    returns: dict
+    """
+    dict_total_list = {}
+    for filename in os.listdir(r"practicum_2022/Results/test_data"):
+        file = load_data(r"practicum_2022/Results/test_data/" + filename[:-5])
+        file_dict = dict_combine_cpde(file, combine=False)
+        dict_2 = flatten_dict_all(file_dict)
+        for key, item in dict_2.items():
+            dict_total_list[key] = item
+
+    return dict_total_list
+
+
 main_dict = load_main_data()
+test_dict = load_list_data()
 
 # %% loading model examples
 
