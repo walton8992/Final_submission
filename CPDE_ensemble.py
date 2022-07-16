@@ -113,6 +113,20 @@ class changePoint:
                 print("Scaling agg needs to be a list")
             return site, table_ensemble_window
 
+    def _twentyfour_hours(self, dictionary):
+
+        for key, data in dictionary.items():
+            # data_time = data[data]
+            hour_zero = data.iloc[-1:].datetime.iloc[0]
+            hour_24 = hour_zero - timedelta(hours=24)
+            data_test = (
+                data[data.datetime > hour_24]
+                .reset_index()
+                .drop(columns="index")
+            )
+            dictionary[key] = data_test
+        return dictionary
+
     def get_algo(self, scale_aggregation):
         """Determine the algorithm to use.
 

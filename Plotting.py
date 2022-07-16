@@ -116,9 +116,12 @@ plot_best_algo(clean_data)
 model1 = list_old_models[0]
 model2 = list_old_models[5]
 model3 = list_old_models[6]
+model4 = list_old_models[3]
 combined_dict = remove_unuseful_plots(combine(model1[1]))
 combined_dict_window = remove_unuseful_plots(combine(model2[1]))
 combined_dict_window_2 = remove_unuseful_plots(combine(model3[1]))
+combined_dict_window_3 = remove_unuseful_plots(combine(model4[1]))
+
 
 # %% plotting model 0, model 2 and and model 3
 # attempts to noise effects with different settings
@@ -147,7 +150,17 @@ with elapsed():
         combined_dict_window_2,
         dict_sites_melt,
         show=False,
-        title="Window rbf. Pen = 100",
+        title="Window rbf. Pen = 10",
+        save_fig=True,
+        file_location_save=r"plots\old_model\window_rbf_10\\",
+    )
+
+with elapsed():
+    utilities.plot_change_points_pyplot(
+        combined_dict_window_3,
+        dict_sites_melt,
+        show=False,
+        title="Window rbf. pen = 100",
         save_fig=True,
         file_location_save=r"plots\old_model\window_rbf_100\\",
     )
