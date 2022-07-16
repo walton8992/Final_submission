@@ -21,10 +21,6 @@ import time
 import plotly.io as pio
 import os
 
-pio.renderers.default = "browser"
-dict_sites_melt = load_data("Data/site_data_melted")
-list_old_models = one_model_test.load()
-
 
 def clear_folder_plots():
     """To clear folder of plots quickly."""
@@ -32,6 +28,7 @@ def clear_folder_plots():
     delete_folder("plots/binseg/matplotlib")
     delete_folder("plots/window/pyplot")
     delete_folder("plots/window/matplotlib")
+    delete_folder(r"plots\binseg\final_plots")
 
 
 def remove_unuseful_plots(dictionary: dict):
@@ -87,8 +84,31 @@ def load_list_data():
     return dict_total_list
 
 
+def plot_best_algo(data_input):
+    """Load in dict of each site with all tested cost functions."""
+    utilities.plot_change_points_pyplot(
+        data_input,
+        dict_sites_melt,
+        show=False,
+        title="CPDE Binseg Combined",
+        file_location_save="plots/binseg/final_plots",
+        save_fig=True,
+    )
+
+
+#%%
+pio.renderers.default = "browser"
+dict_sites_melt = load_data("Data/site_data_melted")
+list_old_models = one_model_test.load()
 main_dict = load_main_data()
 test_dict = load_list_data()
+
+clean_data = remove_unuseful_plots(main_dict)
+#%%
+plot_best_algo(clean_data)
+
+#%%
+
 
 # %% loading model examples
 

@@ -169,7 +169,7 @@ def plot_change_points_pyplot(data_test, dict_sites_melt, **kwargs):
 
                     if save_fig:
                         if kwargs:
-                            title = kwargs.get("title")
+                            title = kwargs.get("title") + "_" + cost
                             if title:
                                 # fig.write_html(file_location_save+"/{}_plot.html".format(key+'_'+title))
                                 fig.write_image(
