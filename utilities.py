@@ -95,7 +95,6 @@ def timethis(func):
     return wrapper
 
 
-@timethis
 def load_data(filename):
     dictionary = bz2.BZ2File(f"{filename}.pbz2", "rb")
     dict_sites_melt = pickle.load(dictionary)
@@ -202,6 +201,27 @@ def plot_changepoints(flattened_dict, dict_sites_melt, save_loc):
                     plt.axvline(x_plot, lw=2, color="black", linestyle="--")
             plt.savefig(save_loc + "/{}.jpeg".format(key))
             plt.close()
+
+
+def unflatten_dict(dict_main):
+    """Give a melted dict and will unflatten."""
+    df_unmelt = pd.DataFrame()
+    y = list(dict_main.variable.unique())
+
+    for variable in y:
+        temp_df = dict_main[dict_main.variable == variable]
+        if df_unmelt.empty:
+            df_unmelt = pd.concat([df_unmelt, temp_df])
+        else:
+            df_unmelt = pd.merge(
+                df_unmelt,
+                temp_df,
+                how="left",
+                on=["datetime", "name"],
+                suffixes=(None, "_" + variable),
+                validate="1:1",
+            )
+    return df_unmelt
 
 
 def plot_change(flattened_dict, dict_sites_melt):
