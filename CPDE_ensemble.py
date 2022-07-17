@@ -293,13 +293,10 @@ def main(dictionary, FUNCTION_DICT):
 
     # print("test", args.dictionary)
     binseg = changePoint(
-        model="binseg",
-        pen=50,
+        model="window",
+        pen=30,
         dict_sites_melt=dict_run_model,
-        cost_function=list(
-            set(list(SCALING_AGGREGATION.keys()))
-            - set(["Min_Raw", "Sum_Raw", "Sum_MinMax", "Min_MinAbs"])
-        ),
+        cost_function=list(list(SCALING_AGGREGATION.keys())),
     )
     # HINT drop and run mutliprcoess is smaller#
     """
@@ -308,7 +305,7 @@ def main(dictionary, FUNCTION_DICT):
     t1 = binseg.multithreading(binseg.tuple_arguments)
     save_data(
         t1,
-        "practicum_2022/Results/" "binseg_test" + dictionary,
+        "practicum_2022/Results/" "window" + dictionary,
     )
     print(f"Saving {dictionary}")
 
