@@ -54,27 +54,33 @@ class elapsed:
         print("%.1f ms" % ((time.time() - self.start) * 1000))
 
 
-def load_main_data():
+def load_main_data(file_location):
     """Load main data for 5 test models."""
     dict_total = {}
-    for filename in os.listdir(r"practicum_2022/Results/main_data"):
-        file = load_data(r"practicum_2022/Results/main_data/" + filename[:-5])
+    for filename in os.listdir(file_location):
+        file = load_data(file_location + r"/" + filename[:-5])
         file_combined = dict_combine_cpde(file)
         file_flat = flatten_dict_all(file_combined)
         dict_total = {**dict_total, **file_flat}
     return dict_total
 
 
-def load_list_data():
+def load_list_data(folder):
     """Load data from test_data folder.
 
-    This is the folder that has all cost functions
+    This is the folder that has all cost functions in many different dicts
+
 
     returns: dict
     """
     dict_total_list = {}
-    for filename in os.listdir(r"practicum_2022/Results/test_data"):
-        file = load_data(r"practicum_2022/Results/test_data/" + filename[:-5])
+    none_dict = {}
+    for filename in os.listdir(folder):
+        file = load_data(folder + r"/" + filename[:-5])
+        if not any(file):  # check if list is none
+
+            none_dict[filename] = file
+            continue
         file_dict = dict_combine_cpde(file, combine=False)
         dict_2 = flatten_dict_all(file_dict)
         for key, item in dict_2.items():
@@ -83,14 +89,14 @@ def load_list_data():
     return dict_total_list
 
 
-def plot_best_algo(data_input, dict_sites_melt):
+def plot_best_algo(data_input, dict_sites_melt, location, title):
     """Load in dict of each site with all tested cost functions."""
     utilities.plot_change_points_pyplot(
         data_input,
         dict_sites_melt,
         show=False,
-        title="CPDE Binseg Combined",
-        file_location_save="plots/binseg/final_plots",
+        title=title,
+        file_location_save=location,
         save_fig=True,
     )
 
@@ -99,18 +105,20 @@ def plot_best_algo(data_input, dict_sites_melt):
 # plot graphs from CPDE module
 
 # HINT loading CPDE output here.
-# if __name__ == "__main__":
-#     print("Main")
-#     #%%
-#     pio.renderers.default = "browser"
-#     dict_sites_melt = load_data("Data/site_data_melted")
-#     list_old_models = one_model_test.load()
-#     main_dict = load_main_data()
-#     test_dict = load_list_data()
+if __name__ == "__main__":
+    print("Main")
+    pio.renderers.default = "browser"
+    dict_sites_melt = load_data("Data/melted_dict_data/site_data_melted")
+    list_old_models = one_model_test.load()
+    main_dict = load_main_data("Results/main_data/")
 
-#     clean_data = remove_unuseful_plots(main_dict)
-#     #%%
-#     plot_best_algo(clean_data)
+    test_dict = load_list_data("Results/test_data/Window_all/")
+
+    clean_data = remove_unuseful_plots(test_dict)
+    #%%
+    plot_best_algo(
+        clean_data, dict_sites_melt, "../plots/window/final", "window_ALL"
+    )
 
 #     #%%
 

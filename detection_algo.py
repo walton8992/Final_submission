@@ -23,7 +23,7 @@ window = changePoint(
     pen=30,
     dict_sites_melt=dict_sites_melt,
     cost_function=list(["Min_MinAbs"]),
-    lookback_duration=True,
+    lookback_duration=False,
 )
 if __name__ == "__main__":
     start_time = time.time()
@@ -34,11 +34,11 @@ if __name__ == "__main__":
     main = window.flatten_dict_all(main)
     main = remove_unuseful_plots(main)
 
-    plot_change_points_pyplot(
-        main,
-        dict_sites_melt,
-        show=False,
-        title="Window. Pen = 30, cost=Min_MinAbs",
-        save_fig=True,
-        file_location_save=r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final\plots\pelt",
-    )
+    # plot_change_points_pyplot(
+    #     main,
+    #     dict_sites_melt,
+    #     show=False,
+    #     title="Window. Pen = 30, cost=Min_MinAbs",
+    #     save_fig=True,
+    #     file_location_save=r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final\plots\pelt",
+    # )

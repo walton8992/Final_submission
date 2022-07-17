@@ -99,7 +99,10 @@ class one_Model:
         )
 
         list_models = [model1, model2, model3, model4, model5, model6, model7]
-        save_data(list_models, "Data/Models/list_models")
+        save_data(
+            list_models,
+            r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final\Data\Models",
+        )
         return list_models
 
 
@@ -108,7 +111,9 @@ def main():
 
 
 def load():
-    list_models = load_data("Data/Models/list_models")
+    list_models = load_data(
+        r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final\Data\Models\list_models"
+    )
 
     return list_models
 
