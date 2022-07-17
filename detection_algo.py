@@ -16,12 +16,12 @@ change_working_dir(
 )
 dict_sites_melt = load_data(r"Data\melted_dict_data\site_data_melted")
 # HINT if need smaller dict
-# small_dict = dict(itertools.islice(dict_sites_melt.items(), 5))
+small_dict = dict(itertools.islice(dict_sites_melt.items(), 5))
 
 window = changePoint(
     model="pelt",
     pen=30,
-    dict_sites_melt=dict_sites_melt,
+    dict_sites_melt=small_dict,
     cost_function=list(["Min_MinAbs"]),
     lookback_duration=False,
 )
