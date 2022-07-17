@@ -151,6 +151,12 @@ class changePoint:
                 params=PARAMS,
                 scale_aggregation=scale_aggregation,
             )
+        elif self.model == "pelt":
+            algo = rpt.Pelt(
+                min_size=5,
+                model="l2",
+                params=None,
+            )
         return algo
 
     def _generate_tuple_argument(
@@ -212,36 +218,35 @@ class changePoint:
 
         return test
 
+    def flatten_dict_all(self, dictionary_results: dict):
+        """Flatten dict one stage further.
 
-def flatten_dict_all(dictionary_results: dict):
-    """Flatten dict one stage further.
+        We want to be able to flatten to see,
+        for each of the cost functions, what cpde we get
+        and then compare each method with graphs.
 
-    We want to be able to flatten to see,
-    for each of the cost functions, what cpde we get
-    and then compare each method with graphs.
-
-    Args:
-        -dict
-
-    Returns:
+        Args:
             -dict
-    """
-    new_dict = {}
-    for site, feature_var in dictionary_results.items():
-        new_dict[site] = {}
-        list_of_features = list(feature_var.keys())
-        for feature in list_of_features:
-            data = feature_var[feature]
-            for cost, changepoint in data.items():
-                if cost not in new_dict[site]:
 
-                    new_dict[site][cost] = changepoint
-                else:
-                    new_dict[site][cost] = list(
-                        set(changepoint + new_dict[site][cost])
-                    )
+        Returns:
+                -dict
+        """
+        new_dict = {}
+        for site, feature_var in dictionary_results.items():
+            new_dict[site] = {}
+            list_of_features = list(feature_var.keys())
+            for feature in list_of_features:
+                data = feature_var[feature]
+                for cost, changepoint in data.items():
+                    if cost not in new_dict[site]:
 
-    return new_dict
+                        new_dict[site][cost] = changepoint
+                    else:
+                        new_dict[site][cost] = list(
+                            set(changepoint + new_dict[site][cost])
+                        )
+
+        return new_dict
 
 
 def split_dict(main_dict, split_number):
@@ -275,23 +280,23 @@ def split_dict(main_dict, split_number):
 
 def main(dictionary, FUNCTION_DICT):
 
-    dict_sites_melt_main = load_data("Data/site_data_melted")
+    dict_sites_melt_main = load_data(
+        r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final\practicum_2022\Data\melted_dict_data\site_data_melted"
+    )
     # HINT split into smaller dicts for processing
 
     dict_sites_melt_main = collections.OrderedDict(
         sorted(dict_sites_melt_main.items())
     )
+    # FUNCTION_DICT = split_dict(dict_sites_melt_main, 100)
     dict_run_model = FUNCTION_DICT[dictionary]
 
     # print("test", args.dictionary)
     binseg = changePoint(
-        model="binseg",
-        pen=50,
+        model="window",
+        pen=30,
         dict_sites_melt=dict_run_model,
-        cost_function=list(
-            set(list(SCALING_AGGREGATION.keys()))
-            - set(["Min_Raw", "Sum_Raw", "Sum_MinMax", "Min_MinAbs"])
-        ),
+        cost_function=list(list(SCALING_AGGREGATION.keys())),
     )
     # HINT drop and run mutliprcoess is smaller#
     """
@@ -300,7 +305,7 @@ def main(dictionary, FUNCTION_DICT):
     t1 = binseg.multithreading(binseg.tuple_arguments)
     save_data(
         t1,
-        "practicum_2022/Results/" "binseg_test" + dictionary,
+        "practicum_2022/Results/" "window" + dictionary,
     )
     print(f"Saving {dictionary}")
 
@@ -311,5 +316,9 @@ if __name__ == "__main__":
     parser.add_argument(
         "-d", "--dictionary", help="Dictionary of list", type=str
     )
+    parser.add_argument("-s", "--splits", help="number of splits", type=int)
+
     args = parser.parse_args()
-    main(args.dictionary)
+    main_dict = load_data("Data/melted_dict_data/site_data_melted")
+    FUNCTION_DICT = split_dict(main_dict, args.splits)
+    main(args.dictionary, FUNCTION_DICT)
