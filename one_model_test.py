@@ -85,6 +85,7 @@ class one_Model:
 
     # pelt model takes dyanmic penalty
     def generate_models(self):
+        """Generate sample models to test different hyperaparamters."""
         # https://pro.arcgis.com/en/pro-app/latest/tool-reference/space-time-pattern-mining/how-change-point-detection-works.html
         model1 = self.thread_Process_model(
             "BottomUp", 1, "l2", 10, penalty_val=50
@@ -104,6 +105,13 @@ class one_Model:
             r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final\Data\Models",
         )
         return list_models
+
+
+def cusum(dataframe):
+    """Cusum detection to highlight issues in noisy data"""
+    data = load_data(r"practicum_2022/Data/melted_dict_data/site_data_melted")
+    noisy_data = data.copy()["Alma Water Tank"]
+    noisy_data_variable = noisy_data[noisy_data.variable == "EFsmall"]
 
 
 def main():
