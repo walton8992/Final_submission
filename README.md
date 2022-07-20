@@ -3,7 +3,7 @@ Summer 2022 Commnet practicum for changepoint
 
 The purpose of this practicum is to investigate different methods of detecting significant changepoints in a set of time series data. Some of this data is extremely noisy
 The three main scripts are:
-	CPDE_ensemble.py, detectionn_algo.py and autoencoder_tire.py
+	CPDE_ensemble.py, detection_algo.py and autoencoder_tire.py
 
 To Run.
 
