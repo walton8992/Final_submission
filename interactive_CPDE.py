@@ -4,11 +4,11 @@ Dashboard to show cpd results in interactive table with plots
 
 @author: Alex
 """
-from utilities import load_data, change_working_dir, plot_changepoints
+from utilities import load_data, change_working_dir, plot_change_points_pyplot
 import Plotting
-from dash import Dash, dash_table
-import pandas as pd
 import collections
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 change_working_dir(
     r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final\practicum_2022"
@@ -18,79 +18,78 @@ dict_sites_melt = load_data(
     r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final\practicum_2022\Data\melted_dict_data\site_data_melted"
 )
 clean_data = dict(Plotting.remove_unuseful_plots(data))
-Function = "Max_Rank"
-
-# %%
-# test=[(x,y) for x,y in clean_data.items()]
-dict_cost_norm = dict(
-    (x, s)
-    for x, y in clean_data.items()
-    for r, s in y.items()
-    if r == Function
-)
-# get plots in
+Function = "Min_MinAbs"
 #%%
-plot_changepoints(dict_cost_norm, dict_sites_melt, None)
-
-# %% Dash
-import pandas as pd
-from dash import Dash
-import dash_core_components as dcc
-import dash_html_components as html
-from dash.dependencies import Input, Output
-from dash_table import DataTable
-import plotly.graph_objects as go
-
-df = pd.DataFrame(
-    {
-        "values": [1, 2, 3, 4],
-        "labels": ["value 1", "value 2", "value 3", "value 4"],
-    }
-)
-
-app = Dash(__name__)
-
-app.layout = html.Div(
-    [
-        dcc.Graph(id="graph"),
-        DataTable(
-            id="table",
-            columns=[{"name": "values", "id": "values"}],
-            data=df.to_dict("records"),
-        ),
-    ]
-)
+SCALING_AGGREGATION = [
+    "Min_Raw",
+    "Min_MinMax",
+    "Min_Znorm",
+    "Min_MinAbs",
+    "Min_Rank",
+    "Sum_Raw",
+    "Sum_MinMax",
+    "Sum_Znorm",
+    "Sum_MinAbs",
+    "Sum_Rank",
+    "WeightedSum_Raw",
+    "WeightedSum_MinMax",
+    "WeightedSum_Znorm",
+    "WeightedSum_MinAbs",
+    "WeightedSum_Rank",
+    "Max_Raw",
+    "Max_MinMax",
+    "Max_Znorm" "Max_MinAbs",
+    "Max_Rank",
+]
 
 
-@app.callback(
-    Output("graph", "figure"),
-    Input("table", "active_cell"),
-    prevent_initial_call=True,
-)
-def update_output_div(active_cell):
-    selected_value = df.iloc[active_cell["row"], active_cell["column"]]
-    num_values = len(df["values"])
-
-    fig = go.Figure(go.Bar(x=[selected_value], y=[selected_value]))
-    fig.update_layout(yaxis_range=[0, num_values])
-
-    fig.update_layout(
-        yaxis=dict(
-            tickmode="array",
-            tickvals=df["values"],
-            ticktext=df["labels"],
-        ),
-    )
-    fig.update_layout(
-        xaxis=dict(
-            tickmode="array",
-            tickvals=[selected_value],
-            ticktext=[selected_value],
+def plot(data, Function):
+    for key, item in data.items():
+        plotting = dict_sites_melt[key]
+        fig, ax = plt.subplots(figsize=(20, 20))
+        y = sns.lineplot(
+            x="datetime", y="value", hue="variable", data=plotting, ax=ax
         )
+        # plot changepoints
+        y.set_xlabel("Datetime", fontsize=40)
+        y.set_ylabel("pingtime [ms]", fontsize=40)
+        y.set_title(
+            "{}_\n cost_aggregation = {}".format(key, Function),
+            fontsize=40,
+        )
+        for x in item:
+            timestamp_x = plotting[
+                plotting.variable == "BEsmall"
+            ].datetime.iloc[x]
+            plt.axvline(x=timestamp_x, color="red", linestyle="--")
+        plt.savefig(
+            r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final\plots\interactive_CPDE\{}_{}.png".format(
+                key, Function
+            )
+        )
+        plt.close()
+
+    # %%
+
+
+# test=[(x,y) for x,y in clean_data.items()]
+dict_funct = {}
+for Function in SCALING_AGGREGATION[2:3]:
+    dict_cost_norm = dict(
+        (x, s)
+        for x, y in clean_data.items()
+        for r, s in y.items()
+        if r == Function
     )
 
-    return fig
-
-
-if __name__ == "__main__":
-    app.run_server()
+    data_end_removed = {}
+    for key, item in dict_cost_norm.items():
+        # data is dframe
+        temp_list = [x for x in item if x not in [3024, 3025]]
+        if not len(temp_list) == 0:
+            data_end_removed[key] = temp_list
+    dict_funct[Function] = data_end_removed
+#%%
+for key, item in dict_funct.items():
+    plot(data_end_removed, Function)
+#%%
