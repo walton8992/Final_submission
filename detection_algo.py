@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Live detection case - to use on detected aggreagted cost function.
+Live detection case - to use one/many detected aggreagted cost function.
 
 Use multiple thread and process to speed detection
 

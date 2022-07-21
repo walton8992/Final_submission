@@ -19,3 +19,5 @@ run the model as main.
 The utilities folder is needed to load and test the data. This can be done another way as long as it is in a "melted dictionary" format. That is, for each site as the key, the item of the dictionary is a dataframe of 4 columns:
 	name(site), datatime, variable [EFsmall, EFlarge, BEsmall, BElarge
 You should be then able to run the CPDE_ensemble method, or the autocoder_tire main.
+
+When running CPDE detection MAKESURE  to download the ruptuers files from folder. This includes the CPDE detection methodlogy

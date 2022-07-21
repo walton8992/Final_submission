@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Dashboard to show cpd results in interactive table with plots
+Code to run through all 19 different aggregation functions to generate plots
 
 @author: Alex
 """

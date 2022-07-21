@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Dashboard to show cpd results in interactive table with plots
-
+Code to run through  generated  CPDE ensemble
 @author: Alex
 """
 from utilities import load_data, change_working_dir, plot_change_points_pyplot
@@ -74,7 +73,7 @@ def plot(data, Function):
 
 # test=[(x,y) for x,y in clean_data.items()]
 dict_funct = {}
-for Function in SCALING_AGGREGATION[2:3]:
+for Function in SCALING_AGGREGATION:
     dict_cost_norm = dict(
         (x, s)
         for x, y in clean_data.items()

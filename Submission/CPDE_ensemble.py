@@ -2,6 +2,8 @@
 """
 Class to generate CPDE for input list of dictionaries, and variables - with CPDE
 
+if run alone can give args to generate data
+
 """
 from utilities import change_working_dir, load_data, save_data, timethis
 import ruptures as rpt
