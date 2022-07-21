@@ -5,6 +5,9 @@ The purpose of this practicum is to investigate different methods of detecting s
 The three main scripts are:
 	CPDE_ensemble.py, detection_algo.py and autoencoder_tire.py
 
+Utilities.py provides load and save functions. The iterate_data_loader.py will generate all agg.functions for specific method and penalty in CPDE_ensemble.py - used to test which method and agg.function is best.
+Interactive_CPDE_py is used to plot those grahs generated from iterate_data.py
+
 To Run.
 
 The CPDE ensemble class is set up to allow the user to run a window, binseg or pelt algorithm, with a predetermined penalty if they wish. This then run the CPDE algorithm with an aggregated cost function. 
@@ -20,4 +23,6 @@ The utilities folder is needed to load and test the data. This can be done anoth
 	name(site), datatime, variable [EFsmall, EFlarge, BEsmall, BElarge
 You should be then able to run the CPDE_ensemble method, or the autocoder_tire main.
 
-When running CPDE detection MAKESURE  to download the ruptuers files from folder. This includes the CPDE detection methodlogy
+When running CPDE detection MAKE SURE  to download the ruptuers files from folder. This includes the CPDE detection methodlogy - cannot obtain online from ruptures package
+
+site_data_melted.pbz2 is the format needed when running the data. This is generated from the create_data.py from sql database. can be edited as needed.

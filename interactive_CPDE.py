@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Code to run through  generated  CPDE ensemble
+Code to run through all 19 different aggregation functions to generate plots
+
 @author: Alex
 """
 from utilities import load_data, change_working_dir, plot_change_points_pyplot
@@ -73,7 +74,7 @@ def plot(data, Function):
 
 # test=[(x,y) for x,y in clean_data.items()]
 dict_funct = {}
-for Function in SCALING_AGGREGATION:
+for Function in SCALING_AGGREGATION[2:3]:
     dict_cost_norm = dict(
         (x, s)
         for x, y in clean_data.items()
