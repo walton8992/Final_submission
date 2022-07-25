@@ -1,0 +1,907 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="54f5c602-b338-4541-95f5-fa4a57fbee8b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/final_submission.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/ping_practicum.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/environment_old.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Alamo Bend-28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Alamo Bend-28_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Alma Water Tank.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Alma Water Tank_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Anasazi Inn-11226.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Anasazi Inn-11226_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Anasazi Inn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Anasazi Inn_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Aneth-10903.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Aneth-10903_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Aneth.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Aneth_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Angel Fire South.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Angel Fire South_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Angel Fire West.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Angel Fire West_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Angel Fire.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Angel Fire_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Anita.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Anita_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Antelope Point Marina-10293.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Antelope Point Marina-10293_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Antelope Point Marina.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Antelope Point Marina_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Antero Reservoir.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Antero Reservoir_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Arlington.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Arlington_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Arroyo Hondo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Arroyo Hondo_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Ashland.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Ashland_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Atlanta Test Cell.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Atlanta Test Cell_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Atrisco-1800.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Atrisco-1800_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Badger Mountain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Badger Mountain_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Beclabito-1804.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Beclabito-1804_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Bedrock City.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Bedrock City_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Big Water-10900.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Big Water-10900_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Big Water.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Big Water_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Black Mesa-10227.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Black Mesa-10227_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Blanco Hill.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Blanco Hill_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Blue Diamond-10628.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Blue Diamond-10628_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Blue Gap-10250.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Blue Gap-10250_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Blue Gap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Blue Gap_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Bluff-10904.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Bluff-10904_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Bluff.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Bluff_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Bouse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Bouse_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Brazos Canyon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Brazos Canyon_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Burnside-11200.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Burnside-11200_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Burnside.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Burnside_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/CSRK-91-perry-test-cell.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/CSRK-91-perry-test-cell_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/CSRK-UL-Test.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/CSRK-UL-Test_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cameron Water Tank-10260.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cameron Water Tank-10260_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cameron Water Tank.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cameron Water Tank_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cedar Ridge-10200.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cedar Ridge-10200_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cedar Ridge.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cedar Ridge_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chama Downtown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chama Downtown_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chama.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chama_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chilchinbito-11237.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chilchinbito-11237_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chilchinbito.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chilchinbito_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chinle East-10246.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chinle East-10246_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chinle East.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chinle East_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chinle Hospital-11211.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chinle Hospital-11211_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chinle Hospital.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chinle Hospital_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chinle North-11202.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chinle North-11202_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chinle North.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chinle North_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chinle-20201.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chinle-20201_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chinle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chinle_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chisos Basin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Chisos Basin_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cimarron South.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cimarron South_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Coalmine Canyon-10243.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Coalmine Canyon-10243_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Coalmine Canyon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Coalmine Canyon_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Commnet_Lab_Airscale_eNodeB-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Commnet_Lab_Airscale_eNodeB-1_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Congress West.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Congress West_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Continental Divide.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Continental Divide_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Coppermine-10264.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Coppermine-10264_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Coppermine.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Coppermine_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Counselor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Counselor_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cow Springs West-11209.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cow Springs West-11209_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cow Springs West.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cow Springs West_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Creede Downtown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Creede Downtown_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Creede.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Creede_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cross Timbers-10621.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cross Timbers-10621_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Crystal-10194.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Crystal-10194_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Crystal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Crystal_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cuba Downtown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cuba Downtown_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cuba South.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cuba South_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cuba_1900.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cuba_1900_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cuba_700.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Cuba_700_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Dennehotso-10202.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Dennehotso-10202_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Dennis Naglowsky.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Dennis Naglowsky_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Devil's Head-203.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Devil's Head-203_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Dilkon District Office-10226.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Dilkon District Office-10226_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Dilkon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Dilkon_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Dubois.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Dubois_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Duck Water-695.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Duck Water-695_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Dulce.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Dulce_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Eagle Nest.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Eagle Nest_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Eagle Tail Mountain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Eagle Tail Mountain_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Elden Peak-10204.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Elden Peak-10204_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Elden Peak.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Elden Peak_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Eleven Mile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Eleven Mile_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Elk Creek.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Elk Creek_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Elko Mountain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Elko Mountain_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Elko Shopping District.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Elko Shopping District_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Elko West-10676.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Elko West-10676_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Elko West-20676.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Elko West-20676_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Elko West-30676.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Elko West-30676_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Elko West.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Elko West_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Ely East-10619.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Ely East-10619_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Ely Main Yard-10617.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Ely Main Yard-10617_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Empire.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Empire_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Escrito Mesa-10195.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Escrito Mesa-10195_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Escrito Mesa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Escrito Mesa_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Fairplay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Fairplay_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Forest Lake Water Tank-11219.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Forest Lake Water Tank-11219_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Forest Lake Water Tank.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Forest Lake Water Tank_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Fort Defiance West-11203.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Fort Defiance West-11203_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Fort Defiance West.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Fort Defiance West_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Fort Defiance-20234.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Fort Defiance-20234_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Fort Defiance.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Fort Defiance_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Fort. Burgwin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Fort. Burgwin_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Fox Mountain COW.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Fox Mountain COW_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Fruitland-169.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Fruitland-169_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Ganado-10101.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Ganado-10101_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Gap-10205.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Gap-10205_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Gap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Gap_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Gerlach.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Gerlach_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Grand Canyon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Grand Canyon_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Grandview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Grandview_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Grass Valley-20661.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Grass Valley-20661_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Gray Mountain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Gray Mountain_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Grease Wood-10262.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Grease Wood-10262_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Greasewood.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Greasewood_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Guffey.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Guffey_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Hard Rock (Many Bobcats).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Hard Rock (Many Bobcats)_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Hartsel (South Park).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Hartsel (South Park)_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Hawkins Road Garage-174.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Hawkins Road Garage-174_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Hawthorne Downtown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Hawthorne Downtown_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Hole In The Rock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Hole In The Rock_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Hole in the Rock-10256.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Hole in the Rock-10256_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Hotel Nevada-10629.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Hotel Nevada-10629_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Houck.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Houck_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Indian Wells-10289.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Indian Wells-10289_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Indian Wells.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Indian Wells_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/JB Ellis.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/JB Ellis_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Jacks Peak-10207.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Jacks Peak-10207_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Jacks Peak.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Jacks Peak_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Jacob Lake.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Jacob Lake_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Jefferson South.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Jefferson South_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Jemez Springs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Jemez Springs_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Kaibeto-20259.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Kaibeto-20259_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Kaibeto.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Kaibeto_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Kayenta Downtown-20269.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Kayenta Downtown-20269_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Kayenta Downtown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Kayenta Downtown_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Kayenta West-21229.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Kayenta West-21229_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Kayenta West.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Kayenta West_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Kinkaid.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Kinkaid_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Kinlichee-10288.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Kinlichee-10288_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Kinlichee.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Kinlichee_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Klagetoh-1243.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Klagetoh-1243_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Lake City 850.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Lake City 850_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Lake George.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Lake George_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Lama.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Lama_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Lame Deer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Lame Deer_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Lechee-10265.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Lechee-10265_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Lechee.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Lechee_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Leupp-11227.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Leupp-11227_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Leupp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Leupp_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Little Beaver.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Little Beaver_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Little Black Spot-10223.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Little Black Spot-10223_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Little Black Spot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Little Black Spot_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Little Rock LTE Test.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Little Rock LTE Test_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Little Water-10161.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Little Water-10161_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Little Water.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Little Water_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Los Alamos South.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Los Alamos South_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Los Alamos West.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Los Alamos West_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Los Alamos.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Los Alamos_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Low Mountain COW.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Low Mountain COW_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Lukachukai-10245.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Lukachukai-10245_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Lukachukai.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Lukachukai_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Many Farms Mesa-20208.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Many Farms Mesa-20208_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Many Farms Mesa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Many Farms Mesa_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Marsh Pass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Marsh Pass_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/McGill-10616.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/McGill-10616_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Meeker South.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Meeker South_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Meeker West.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Meeker West_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Meeker.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Meeker_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Mexican Water-10910.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Mexican Water-10910_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Mexican Water.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Mexican Water_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Monument Valley.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Monument Valley_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Moore Ranch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Moore Ranch_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Mora.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Mora_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Mount Brock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Mount Brock_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Mud Canyon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Mud Canyon_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV31_Customer_Service.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV31_Customer_Service_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV32_Desert_Peak.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV32_Desert_Peak_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV33_Head_End.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV33_Head_End_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV35_Pioneer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV35_Pioneer_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV36_Rattle_Snake.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV36_Rattle_Snake_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV38_Sand_Mountain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV38_Sand_Mountain_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV39_Southside.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV39_Southside_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV602_Austin_Summit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV602_Austin_Summit_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV607_Eureka.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV607_Eureka_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV608_Fairview_Peak.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV608_Fairview_Peak_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV609_Golconda.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV609_Golconda_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV611_Imlay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV611_Imlay_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV613_Lovelock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV613_Lovelock_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV618_Rye_Patch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV618_Rye_Patch_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV624_Toulon_Peak.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV624_Toulon_Peak_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV625_Winnemucca_Mtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV625_Winnemucca_Mtn_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV626_Winnemucca_North.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV626_Winnemucca_North_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV627_Gerlach.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV627_Gerlach_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV652_Mt_Moses.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV652_Mt_Moses_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV658_Kingston.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV658_Kingston_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV661_Grass_Valley.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV661_Grass_Valley_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV662_Man_Camp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV662_Man_Camp_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV663_FishCreek.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV663_FishCreek_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV664_Winnemucca_South.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV664_Winnemucca_South_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV669_Battle_Mountain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV669_Battle_Mountain_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV672_Dunphy_East.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV672_Dunphy_East_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV673_Carlin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV673_Carlin_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV684_Horse_Canyon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV684_Horse_Canyon_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV686_Frog_Ponds.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV686_Frog_Ponds_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV688_Mt_Callaghan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV688_Mt_Callaghan_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV691_Tonkin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV691_Tonkin_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV692_Virginia_Peak.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV692_Virginia_Peak_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV696_Mount_Hope.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/NV696_Mount_Hope_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Na Ah Tee Mesa-10100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Na Ah Tee Mesa-10100_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Na Ah Tee Mesa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Na Ah Tee Mesa_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Nambe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Nambe_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Naschitti.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Naschitti_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Navajo Mountain Cradle Board-10911.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Navajo Mountain Cradle Board-10911_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Navajo Mountain Cradle Board.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Navajo Mountain Cradle Board_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Navajo Mountain-901.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Navajo Mountain-901_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Newcomb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Newcomb_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Oak Creek.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Oak Creek_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Ojo Caliente.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Ojo Caliente_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Oljato.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Oljato_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Page West-11220.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Page West-11220_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Page West.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Page West_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Page.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Page_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Paiute Trail-10615.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Paiute Trail-10615_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Pajarito Peak.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Pajarito Peak_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Paria-10210.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Paria-10210_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Paria.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Paria_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/ParkStreet LAB-20031.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/ParkStreet LAB-20031_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Penasco.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Penasco_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/PerryStreet LAB-10597.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/PerryStreet LAB-10597_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Pine dale-1801.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Pine dale-1801_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Pinetop ATT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Pinetop ATT_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Pinetop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Pinetop_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Pinon Chapter House-10266.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Pinon Chapter House-10266_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Pinon Chapter House.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Pinon Chapter House_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Polacca Central Office.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Polacca Central Office_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Porter Mountain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Porter Mountain_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Preston Mesa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Preston Mesa_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Puerco Ridge NTUA (Houck)-11234.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Puerco Ridge NTUA (Houck)-11234_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Questa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Questa_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Quijotoa Ridge.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Quijotoa Ridge_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Raplee Ridge-913.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Raplee Ridge-913_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Red Hill.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Red Hill_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Red Lake-10263.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Red Lake-10263_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Red Lake.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Red Lake_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Red River East.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Red River East_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Red River.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Red River_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Red Valley-10247.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Red Valley-10247_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Red Valley.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Red Valley_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Rincon Test.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Rincon Test_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Rock Point-10222.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Rock Point-10222_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Rock Point.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Rock Point_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Rough Rock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Rough Rock_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Round Mountain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Round Mountain_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Round Rock-11230.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Round Rock-11230_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Round Rock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Round Rock_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Rutheron.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Rutheron_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/SAS_Server.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/SAS_Server_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Saint Michaels Water Tank-20261.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Saint Michaels Water Tank-20261_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Saint Michaels Water Tank.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Saint Michaels Water Tank_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Salome.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Salome_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/San Antonio Peak.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/San Antonio Peak_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/San Ysidro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/San Ysidro_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Sapinero.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Sapinero_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Sawmill-11235.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Sawmill-11235_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Sawmill.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Sawmill_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Sheep Springs-10199.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Sheep Springs-10199_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Sheep Springs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Sheep Springs_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock DO-10139.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock DO-10139_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock DO-20139.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock DO-20139_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock District Office-30139.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock District Office-30139_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock District Office.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock District Office_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock East-10180.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock East-10180_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock East-20180.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock East-20180_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock East-30180.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock East-30180_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock East.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock East_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock North-10181.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock North-10181_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock North-20181.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock North-20181_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock North-30181.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock North-30181_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock North.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shiprock North_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shonto South-11208.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shonto South-11208_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shonto South.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shonto South_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shonto-11228.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shonto-11228_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shonto.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Shonto_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Skyline.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Skyline_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Soldier Mountain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Soldier Mountain_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/South Red Hill-10212.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/South Red Hill-10212_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/South Red Hill.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/South Red Hill_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Spider Mound-221.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Spider Mound-221_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Spinney Reservoir.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Spinney Reservoir_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Spring Creek-10674.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Spring Creek-10674_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Spring Creek-20674.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Spring Creek-20674_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Spring Creek-30674.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Spring Creek-30674_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Spring Creek.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Spring Creek_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Steamboat East-11215.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Steamboat East-11215_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Steamboat West.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Steamboat West_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Sugar Shack.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Sugar Shack_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Summit East-1244.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Summit East-1244_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Sunset Crater-10213.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Sunset Crater-10213_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Sunset Crater.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Sunset Crater_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Sweetwater-11241.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Sweetwater-11241_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Sweetwater.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Sweetwater_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/T4 Cattle Company.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/T4 Cattle Company_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/TEST1CR01_Castle Rock 90-test.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/TEST1CR01_Castle Rock 90-test_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Taos Downtown-10024.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Taos Downtown-10024_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Taos Downtown-20024.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Taos Downtown-20024_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Taos Downtown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Taos Downtown_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Taos South.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Taos South_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Taylor Reservoir.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Taylor Reservoir_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Teesto.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Teesto_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Test Lab-10232.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Test Lab-10232_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Test Lab-232.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Test Lab-232_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tesuque.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tesuque_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/TolaniLake.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/TolaniLake_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tolikan-11236.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tolikan-11236_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tolikan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tolikan_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tonalea-10257.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tonalea-10257_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tonalea.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tonalea_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tonopah Downtown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tonopah Downtown_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Torreon-1803.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Torreon-1803_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tsaile-20298.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tsaile-20298_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tsaile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tsaile_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tse Da Kaan-30179.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tse Da Kaan-30179_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tse Daa Kaan-10179.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tse Daa Kaan-10179_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tse Daa Kaan-20179.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tse Daa Kaan-20179_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tse Daa Kaan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tse Daa Kaan_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tselani-10254.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tselani-10254_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tselani.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tselani_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tuba City District Office-11232.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tuba City District Office-11232_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tuba City District Office.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tuba City District Office_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tuba City South-10224.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tuba City South-10224_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tuba City South.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tuba City South_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tuba City.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tuba City_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tuba Cutoff-10215.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tuba Cutoff-10215_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tuba Cutoff.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tuba Cutoff_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tusayan Airport.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tusayan Airport_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tusayan Central.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Tusayan Central_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Two Grey Hills-10160.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Two Grey Hills-10160_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Two Grey Hills.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Two Grey Hills_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Upper Valley Red River.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Upper Valley Red River_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Victor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Victor_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Vya COW.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Vya COW_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Wahweap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Wahweap_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Waterflow-10114.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Waterflow-10114_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Weaver Mountain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Weaver Mountain_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/White Rock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/White Rock_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/White Signal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/White Signal_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Wickenburg East.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Wickenburg East_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Wickenburg North.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Wickenburg North_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Wickenburg Ranchos.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Wickenburg Ranchos_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Wickenburg West.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Wickenburg West_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Wickenburg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Wickenburg_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Willie-10217.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Willie-10217_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Willie.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Willie_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Window Rock East-11240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Window Rock East-11240_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Woodsprings-1245.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Woodsprings-1245_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Yale Point-10218.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Yale Point-10218_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Yale Point.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Yale Point_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Yarnell.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/Yarnell_dissimilarities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/yahoo.com.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plots/autoencoder/yahoo.com_dissimilarities.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CPDE_ensemble.py" beforeDir="false" afterPath="$PROJECT_DIR$/CPDE_ensemble.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoencoder_tire.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoencoder_tire.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/create_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/detection_algo.py" beforeDir="false" afterPath="$PROJECT_DIR$/detection_algo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/environment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/environment.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive_CPDE.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iterate_date_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/iterate_date_loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2CLtq6bFAQizhfKtzJviDgxkVE9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alex/Documents/Georgia Tech Official MSC/final_submission&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Python.autoencoder_tire">
+    <configuration name="CPDE_ensemble" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="final_submission" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CPDE_ensemble.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="final_submission" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="autoencoder_tire" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="final_submission" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/autoencoder_tire.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.autoencoder_tire" />
+        <item itemvalue="Python.CPDE_ensemble" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="54f5c602-b338-4541-95f5-fa4a57fbee8b" name="Changes" comment="" />
+      <created>1658593881508</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1658593881508</updated>
+      <workItem from="1658593883515" duration="1218000" />
+      <workItem from="1658595325005" duration="2074000" />
+      <workItem from="1658597466370" duration="3632000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CPDE_ensemble.py</url>
+          <line>313</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/autoencoder_tire.py</url>
+          <line>199</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/autoencoder_tire.py</url>
+          <line>198</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/autoencoder_tire.py</url>
+          <line>185</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/final_submission$autoencoder_tire.coverage" NAME="autoencoder_tire Coverage Results" MODIFIED="1658643827198" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/final_submission$CPDE_ensemble.coverage" NAME="CPDE_ensemble Coverage Results" MODIFIED="1658597311919" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>

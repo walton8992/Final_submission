@@ -76,15 +76,12 @@ def create_data(file_location_database, file_location_sites):
 
 
 if __name__ == "__main__":
-    change_working_dir(
-        r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final"
-    )
     data_created = create_data(
-        r"Data\Train_Data\\",
+        r"Data\\",
         r"Data\\",
     )
     #%%
     save_data(
         data_created[2],
-        "practicum_2022\Data\melted_dict_data\dict_sites_melt_2",
+        "site_data_melted",
     )

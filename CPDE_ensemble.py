@@ -283,7 +283,7 @@ def split_dict(main_dict, split_number):
 def main(dictionary, FUNCTION_DICT):
 
     dict_sites_melt_main = load_data(
-        r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final\practicum_2022\Data\melted_dict_data\site_data_melted"
+        r"site_data_melted"
     )
     # HINT split into smaller dicts for processing
 
@@ -301,13 +301,10 @@ def main(dictionary, FUNCTION_DICT):
         cost_function=list(list(SCALING_AGGREGATION.keys())),
     )
     # HINT drop and run mutliprcoess is smaller#
-    """
-    t1 = binseg.multiprocess_method()
-    """
     t1 = binseg.multithreading(binseg.tuple_arguments)
     save_data(
         t1,
-        "practicum_2022/Results/" "window" + dictionary,
+        "results/" "window" + dictionary,
     )
     print(f"Saving {dictionary}")
 
@@ -321,6 +318,6 @@ if __name__ == "__main__":
     parser.add_argument("-s", "--splits", help="number of splits", type=int)
 
     args = parser.parse_args()
-    main_dict = load_data("Data/melted_dict_data/site_data_melted")
+    main_dict = load_data("site_data_melted")
     FUNCTION_DICT = split_dict(main_dict, args.splits)
     main(args.dictionary, FUNCTION_DICT)

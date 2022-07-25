@@ -9,12 +9,22 @@ from utilities import load_data, change_working_dir, plot_change_points_pyplot
 from CPDE_ensemble import changePoint
 import itertools
 import time
-from Plotting import remove_unuseful_plots
+import collections
 
-change_working_dir(
-    r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final\practicum_2022"
-)
-dict_sites_melt = load_data(r"Data\melted_dict_data\site_data_melted")
+
+def remove_unuseful_plots(dictionary: dict):
+    """Want to remove those with just line at the end of the plot."""
+    new_dict = collections.defaultdict(dict)
+    plot_dict = dictionary
+    for key, item in plot_dict.items():
+        if len(list(item.values())[0]) == 1:
+            pass
+        else:
+            new_dict[key] = item
+    return new_dict
+
+
+dict_sites_melt = load_data("site_data_melted")
 # HINT if need smaller dict
 small_dict = dict(itertools.islice(dict_sites_melt.items(), 5))
 

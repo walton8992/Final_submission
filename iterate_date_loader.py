@@ -38,12 +38,9 @@ def split_dict(main_dict, split_number):
     return FUNCTION_DICT
 
 
-change_working_dir(
-    r"C:\Users\Alex\Documents\Georgia Tech Official MSC\Pract_final"
-)
 # HINT load data from melted dict
 dict_sites_melt_main = load_data(
-    "practicum_2022/Data/melted_dict_data/site_data_melted"
+    "site_data_melted"
 )
 # HINT split into smaller dicts for processing
 
